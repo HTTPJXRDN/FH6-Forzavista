@@ -31,6 +31,8 @@ internal sealed record GameBuildProfile
     internal ulong? PresentationServiceVtableRva { get; init; }
     internal ulong? PresentationEventHubVtableRva { get; init; }
     internal ulong? RenderSystemGlobalRva { get; init; }
+    internal MaxDetailModeMap? MaxDetailModes { get; init; }
+    internal MaxDetailSceneMap? MaxDetailScenes { get; init; }
     internal ulong? CarRenderModelWrapperVtableRva { get; init; }
     internal ulong? CarModelInstanceVtableRva { get; init; }
     internal ulong? CarModelResourceVtableRva { get; init; }
@@ -93,6 +95,8 @@ internal static class GameBuildProfiles
             Name = "Steam 6.461.691.0",
             Sha256 = "B8C18EC88AB3143DA03C3BB9BD9D0761F23E00F809B1BD9D50CF07496E5D1CE5",
             PeTimestamp = 0x6ABA8552,
+            MaxDetailModes = MaxDetailModeMap.Steam461,
+            MaxDetailScenes = MaxDetailSceneMap.Steam461,
             SizeOfImage = 0x0B3C0000,
             RootRegistryRva = 0x0A882A18,
             SlotIndexRva = 0x0AAF8328,
@@ -115,6 +119,8 @@ internal static class GameBuildProfiles
             Name = "Microsoft Store 3.461.691.0",
             PeTimestamp = 0x6ABA856E,
             SizeOfImage = 0x0B3AD000,
+            MaxDetailModes = MaxDetailModeMap.Xbox461,
+            MaxDetailScenes = MaxDetailSceneMap.Xbox461,
             RootRegistryRva = null,
             SlotIndexRva = null,
             SubscriptionVtableRva = 0x06CE4520,

@@ -8,7 +8,8 @@ using Microsoft.Win32.SafeHandles;
 namespace ForzavistaFreeRoam;
 
 internal sealed record NativeControlStatus(bool Ready, bool PresentationActive, int? ProcessId,
-    ulong? Vehicle, ulong? Component, string? CarToken, bool WindowControlsMapped, string Message);
+    ulong? Vehicle, ulong? Component, string? CarToken, bool WindowControlsMapped, string Message,
+    NativeEngineStatus? Engine = null);
 
 internal static partial class NativeCarControl
 {
@@ -506,7 +507,7 @@ internal static partial class NativeCarControl
                 TryGetCurrentCarToken(context, target), HasWindowMapping(context.Profile),
                 presentationActive
                     ? "external free-roam panels ready; garage presentation also active"
-                    : "external free-roam panel controls ready");
+                    : "external free-roam panel controls ready", InspectEngine(context, target));
         }
         catch (Exception ex)
         {
@@ -708,7 +709,7 @@ internal static partial class NativeCarControl
 
     internal static int GetRenderMode()
     {
-        var (handle, module, profile) = OpenGameModule(action: false);
+        var (handle, module, profile, _, _) = OpenGameModule(action: false);
         using (handle)
         {
             var controller = ResolveRenderController(handle, module, profile);
@@ -716,30 +717,9 @@ internal static partial class NativeCarControl
         }
     }
 
-    internal static string SetRenderMode(int mode)
-    {
-        var (handle, module, profile) = OpenGameModule(action: true);
-        using (handle)
-        {
-            var controller = ResolveRenderController(handle, module, profile);
-            var current = ReadInt32(handle, controller + 0x2B0);
-            if (current == mode) return $"render mode already {mode}";
-            SessionLog.Write("render_mode_request", $"build={profile.Name}; module=0x{module:X}; controller=0x{controller:X}; {current} -> {mode}");
-            Write(handle, controller + 0x2BC, BitConverter.GetBytes(0));
-            Write(handle, controller + 0x2B4, BitConverter.GetBytes(current));
-            Write(handle, controller + 0x2B0, BitConverter.GetBytes(mode));
-            Write(handle, controller + 0x2B8, [1]);
-            SessionLog.Write("render_mode_published", $"{current} -> {mode}; pending request published");
-            return $"render mode {current} -> {mode} requested";
-        }
-    }
-
-    internal static string SetMaxDetail(bool on) =>
-        SetRenderMode(on ? MaxDetailRenderMode : FreeroamRenderMode);
-
     // Opens the verified game process for module-relative work (render mode),
     // without the convertible-car locator, so it works on any car.
-    private static (SafeProcessHandle Handle, ulong Module, GameBuildProfile Profile) OpenGameModule(bool action)
+    private static (SafeProcessHandle Handle, ulong Module, GameBuildProfile Profile, int ProcessId, long StartTicks) OpenGameModule(bool action)
     {
         var game = TryGetGame() ?? throw new InvalidOperationException("game not running");
         try
@@ -754,7 +734,7 @@ internal static partial class NativeCarControl
                 var identity = ReadModuleIdentity(handle, module);
                 var profile = GameBuildProfiles.MatchExecutable(moduleInfo.FileName,
                     identity.PeTimestamp, identity.SizeOfImage);
-                return (handle, module, profile);
+                return (handle, module, profile, game.Id, game.StartTime.ToUniversalTime().Ticks);
             }
             catch
             {

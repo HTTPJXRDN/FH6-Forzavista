@@ -54,10 +54,11 @@ internal static partial class NativeCarControl
             {
                 try
                 {
+                    var amberProfile = AmberSignalProfileCatalog.ForCar(identity.Car);
                     var nativeProfile = NativeHazardProfileCatalog.ForCar(identity.Car);
-                    var nativePaths = nativeProfile is null ? null : nativeProfile.Left.Concat(nativeProfile.Right)
-                        .Select(p => @"Game:\Media\cars\" + identity.Car + "\\" + p.Path.Replace('/', '\\'))
-                        .ToHashSet(StringComparer.OrdinalIgnoreCase);
+                    var rows = amberProfile?.Materials.Select(r => r.Material) ?? nativeProfile?.Left.Concat(nativeProfile.Right);
+                    var nativePaths = rows?.Select(p => @"Game:\Media\cars\" + identity.Car + "\\" + p.Path.Replace('/', '\\'))
+                        .ToHashSet(StringComparer.OrdinalIgnoreCase) ?? RsxSignalPaths(identity.Car);
                     models = DiscoverSignalModels(context, identity, cancellationToken: cancellationToken, drlColorPaths: nativePaths);
                     if (models.Count == 0)
                         throw new InvalidOperationException("Current-player lamp owners were not found; no writes.");
@@ -80,11 +81,21 @@ internal static partial class NativeCarControl
             throw new InvalidOperationException("Car/scene changed during signal preparation; no writes.");
         SessionLog.Write("signals_prepared", $"read-only; elapsedMs={clock.ElapsedMilliseconds}; models={models.Count}",
             action, identity.Pid, identity.Car, identity.Component);
+        if (models.Count > 0) SessionLog.Write("signals_models", string.Join("; ", models.Select(m => m.Path)),
+            action, identity.Pid, identity.Car, identity.Component);
         return new(identity, requested, previous, models);
     }
 
     private static bool NeedsSignalModels(string car, SignalMode mode) => mode != SignalMode.Off &&
-        car != "MAZ_RX7_85" && !(car == "ACU_RSXTYPES_02" && mode == SignalMode.Hazards);
+        !(car == "ACU_RSXTYPES_02" && mode == SignalMode.Hazards);
+
+    private static HashSet<string>? RsxSignalPaths(string car) => car == "ACU_RSXTYPES_02"
+        ? (from region in new[] { "PrimaryLights", "SecondaryLights" }
+           from side in new[] { "L", "R" }
+           from bulbs in new[] { "", "Bulbs" }
+           select @"Game:\Media\cars\" + car + @"\Scene\Exterior\" + region + "\\" +
+               (region == "PrimaryLights" ? "headlight" : "taillight") + side + bulbs + "_a.modelbin")
+            .ToHashSet(StringComparer.OrdinalIgnoreCase) : null;
 
     private sealed record SignalBranch(uint Output, ulong Controller, ulong Sequence,
         ulong Sentinel, ulong[] Nodes, byte[][] Original);
@@ -208,7 +219,7 @@ internal static partial class NativeCarControl
                 }
                 foreach (var output in outputs) SetSignalGate(session, output, 11);
                 _signalNotice = null;
-                SessionLog.Write("signals_on", $"mode={next}; guarded native sequence and tested lamp route", action,
+                SessionLog.Write("signals_on", $"mode={next}; guarded native sequence and amber preview lamp route", action,
                     identity.Pid, identity.Car, identity.Component);
                 return new(true, $"{next}: ON. Click again for OFF. " + capabilities.Description +
                     " Turn OFF before changing car/scene. Development feature; Steam only.");
@@ -465,6 +476,20 @@ internal static partial class NativeCarControl
     {
         var context = session.Context;
         var identity = session.Identity;
+        if (AmberSignalProfileCatalog.ForCar(identity.Car) is { } amberProfile)
+        {
+            var route = DrlColorRoute.CaptureIndicators(
+                (address, length) => Read(context.Handle, address, length),
+                (address, bytes) => Write(context.Handle, address, bytes),
+                () => ValidateLightIdentity(context) == identity,
+                (address, length) => MappedRenderMemory.IsWritable(context.Handle, address, length),
+                identity.Module, identity.Vehicle, identity.Component, identity.Car, models, amberProfile.Materials,
+                DrlBuildMapping.ForProfile(context.Profile));
+            session.ApplyRoute = route.ApplyIndicatorRouting;
+            session.RestoreRoute = route.Restore;
+            session.ValidateRoute = route.Validate;
+            return;
+        }
         if (NativeHazardProfileCatalog.ForCar(identity.Car) is not null && session.Mode == SignalMode.Hazards)
         {
             var proofs = CaptureNativeHazardProofs(context, identity, models);
@@ -481,7 +506,7 @@ internal static partial class NativeCarControl
         if (identity.Car == "ACU_RSXTYPES_02")
         {
             var route = new RsxSideMaterialRoute(ReadBytes, WriteBytes, SameCar, identity.Module, models,
-                output, useMapped: true, writable: Writable, vehicle: identity.Vehicle);
+                output, useMapped: true, writable: Writable, vehicle: identity.Vehicle, component: identity.Component);
             session.ApplyRoute = route.Apply; session.RestoreRoute = route.Restore; session.ValidateRoute = route.Validate;
         }
         else if (identity.Car == "DOD_CHARGERSRTHELLCAT_15")
@@ -673,13 +698,83 @@ internal static partial class NativeCarControl
 
     // Explicit test/diagnostic entry point. Constructs every route and executes
     // all guards with a READ-ONLY process handle; Apply/Restore are never called.
-    internal static string InspectSignalRoute(string action)
+    internal static string InspectAmberSignalMaterials(string expectedCar, CancellationToken cancellation,
+        bool includeLampLayers = false)
+    {
+        // Standalone diagnostic: the handle, discovery, and all reads below are
+        // read-only. No tracked sessions, Apply, Restore or writer are accessed.
+        using var context = Locate(action: false);
+        var identity = ValidateLightIdentity(context);
+        if (context.Profile.Name != "Steam 6.461.691.0")
+            throw new InvalidOperationException("Amber material inspection is mapped for Steam 6.461.691.0 only.");
+        if (!identity.Car.Equals(expectedCar, StringComparison.OrdinalIgnoreCase))
+            throw new InvalidOperationException("Exact requested car is not loaded; no writes.");
+        var catalog = AmberSignalProfileCatalog.ForCar(identity.Car)
+            ?? throw new InvalidOperationException("No amber preview catalog for this inspection.");
+        var paths = catalog.Materials.Select(r => @"Game:\Media\cars\" + identity.Car + "\\" + r.Material.Path)
+            .ToHashSet(StringComparer.OrdinalIgnoreCase);
+        // Read-only research: include each exact lamp's companion surface/bulb
+        // model, including materials omitted by the static candidate filter.
+        // These paths never become writable profiles through this diagnostic.
+        if (includeLampLayers)
+            foreach (var path in paths.ToArray())
+                if (path.Contains(@"\PrimaryLights\", StringComparison.OrdinalIgnoreCase) ||
+                    path.Contains(@"\SecondaryLights\", StringComparison.OrdinalIgnoreCase))
+                    paths.Add(path.EndsWith("Bulbs_a.modelbin", StringComparison.OrdinalIgnoreCase)
+                        ? path[..^"Bulbs_a.modelbin".Length] + "_a.modelbin"
+                        : path[..^"_a.modelbin".Length] + "Bulbs_a.modelbin");
+        var models = DiscoverSignalModels(context, identity, cancellationToken: cancellation, drlColorPaths: paths);
+        var materials = new List<object>();
+        ulong Pointer(ulong address) => ReadUInt64(context.Handle, address);
+        foreach (var model in models)
+        {
+            cancellation.ThrowIfCancellationRequested();
+            if (ValidateLightIdentity(context) != identity) throw new InvalidOperationException("Car/scene changed during read-only inspection.");
+            var definition = Pointer(model.Instance + 0x28);
+            var table = Pointer(definition + 0x140); var count = Pointer(definition + 0x148);
+            if (table < 0x10000000 || count is 0 or > 256) throw new InvalidOperationException("Invalid read-only material bounds.");
+            var rows = Read(context.Handle, table, checked((int)count * 0x38));
+            for (var index = 0; index < (int)count; index++)
+            {
+                var row = rows.AsSpan(index * 0x38, 0x38).ToArray();
+                var id = BitConverter.ToUInt32(row);
+                if (!includeLampLayers && !catalog.Materials.Any(p => p.Material.Id == id &&
+                    model.Path.EndsWith("\\" + p.Material.Path, StringComparison.OrdinalIgnoreCase))) continue;
+                var material = BitConverter.ToUInt64(row, 0x28);
+                var begin = Pointer(material + 8); var end = Pointer(material + 0x10);
+                if (end < begin || end - begin > 1024 || (end - begin) % 8 != 0)
+                    throw new InvalidOperationException("Invalid read-only parameter bounds.");
+                var parameters = new List<object>();
+                for (var address = begin; address < end; address += 8)
+                {
+                    var parameter = Pointer(address); var vt = Pointer(parameter);
+                    var length = vt == identity.Module + DrlBuildMapping.Steam.ColorParameterVtableRva ||
+                        vt == identity.Module + DrlBuildMapping.Steam.VectorParameterVtableRva ? 0x20 : 0x18;
+                    var bytes = Read(context.Handle, parameter, length);
+                    parameters.Add(new { VtableRva = vt - identity.Module, Bytes = Convert.ToHexString(bytes),
+                        UIntValue = BitConverter.ToUInt32(bytes, 0x10), FloatValueBits = Convert.ToHexString(bytes.AsSpan(0x10, 4)) });
+                }
+                var compiled = Pointer(material + 0x58); var cpu = Pointer(compiled + 0x10); var cpuEnd = Pointer(compiled + 0x18);
+                if (cpuEnd <= cpu || cpuEnd - cpu > 0x1000) throw new InvalidOperationException("Invalid read-only shader bounds.");
+                materials.Add(new { model.Path, Id = id, Parameters = parameters,
+                    Cpu = Convert.ToHexString(Read(context.Handle, cpu, checked((int)(cpuEnd - cpu)))) });
+            }
+        }
+        if (ValidateLightIdentity(context) != identity) throw new InvalidOperationException("Car changed before read-only report completed.");
+        return System.Text.Json.JsonSerializer.Serialize(new { Kind = "read-only-amber-materials", identity.Car,
+            Models = models.Select(m => m.Path), Missing = paths.Where(p => !models.Any(m => m.Path.Equals(p, StringComparison.OrdinalIgnoreCase))),
+            Materials = materials, GameWrites = 0 });
+    }
+
+    internal static string InspectSignalRoute(string action, string? expectedCar = null)
     {
         lock (SignalGate)
         {
             if (_signalSession is not null) throw new InvalidOperationException("Stop active signals before read-only preflight.");
             using var context = Locate(action: false);
             var identity = ValidateLightIdentity(context);
+            if (expectedCar is not null && !identity.Car.Equals(expectedCar, StringComparison.OrdinalIgnoreCase))
+                throw new InvalidOperationException("Exact requested car is not loaded; read-only preflight stopped.");
             var mode = SignalPolicy.Requested(action);
             var capabilities = SignalPolicy.Capabilities(context.Profile.Name, identity.Car);
             if (mode == SignalMode.Hazards ? !capabilities.Hazards : !capabilities.Directions)
@@ -688,7 +783,10 @@ internal static partial class NativeCarControl
             foreach (var branch in CaptureSignalBranches(context, identity)) session.Branches.Add(branch.Key, branch.Value);
             ValidateSignalSession(session, requireEngine: true);
             RequireSignalOutputsOff(session);
-            var models = NeedsSignalModels(identity.Car, mode) ? DiscoverSignalModels(context, identity) : [];
+            var rows = AmberSignalProfileCatalog.ForCar(identity.Car)?.Materials;
+            var paths = rows?.Select(r => @"Game:\Media\cars\" + identity.Car + "\\" + r.Material.Path)
+                .ToHashSet(StringComparer.OrdinalIgnoreCase) ?? RsxSignalPaths(identity.Car);
+            var models = NeedsSignalModels(identity.Car, mode) ? DiscoverSignalModels(context, identity, drlColorPaths: paths) : [];
             PrepareSignalRoute(session, models);
             session.ValidateRoute(false);
             ValidateSignalSession(session, requireEngine: true);

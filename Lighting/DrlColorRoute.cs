@@ -52,6 +52,13 @@ internal sealed class DrlColorRoute
             CompiledHeader, Descriptor, PageHeader, TextureBytes, Original, Last;
         internal required Parameter[] Parameters;
         internal required byte Flags;
+        internal uint? IndicatorOutput;
+        internal float? IndicatorIntensity;
+        internal float[]? IndicatorTint;
+        internal uint NormalTrigger;
+        internal bool SuppressedOverlay;
+        internal int[] AllowedOffsets => SuppressedOverlay ? [Layout.Trigger] :
+            IndicatorOutput is null ? Layout.OwnedOffsets : [.. Layout.OwnedOffsets, Layout.Intensity];
         internal HashSet<int> Owned { get; } = [];
     }
     private sealed record PendingWrite(Target Target, int Offset, byte[] Previous, byte[] Desired);
@@ -63,6 +70,7 @@ internal sealed class DrlColorRoute
     private readonly ChargerRenderOwner renderOwner;
     private readonly DrlBuildMapping build;
     private readonly uint sourceTrigger;
+    private readonly bool indicatorRouting;
     private readonly List<Target> targets = [];
     private PendingWrite? pending;
     internal int Count => targets.Count;
@@ -113,23 +121,47 @@ internal sealed class DrlColorRoute
         Func<bool> sameCar, Func<ulong, int, bool> writable, ulong module, ulong vehicle, ulong component,
         string car, IReadOnlyList<(ulong Wrapper, ulong Instance, ulong Resource, string Path)> models,
         IReadOnlyList<DrlColorMaterialProfile> profiles, uint sourceTrigger = 15, DrlBuildMapping? build = null)
+        : this(read, write, sameCar, writable, module, vehicle, component, car, models, profiles, sourceTrigger, build, null) { }
+
+    internal static DrlColorRoute CaptureIndicators(Func<ulong, int, byte[]> read, Action<ulong, byte[]> write,
+        Func<bool> sameCar, Func<ulong, int, bool> writable, ulong module, ulong vehicle, ulong component,
+        string car, IReadOnlyList<(ulong Wrapper, ulong Instance, ulong Resource, string Path)> models,
+        IReadOnlyList<AmberSignalMaterialProfile> indicators, DrlBuildMapping? build = null)
+        => new(read, write, sameCar, writable, module, vehicle, component, car, models,
+            indicators.Select(r => r.Material).ToArray(), 15, build, indicators);
+
+    private DrlColorRoute(Func<ulong, int, byte[]> read, Action<ulong, byte[]> write,
+        Func<bool> sameCar, Func<ulong, int, bool> writable, ulong module, ulong vehicle, ulong component,
+        string car, IReadOnlyList<(ulong Wrapper, ulong Instance, ulong Resource, string Path)> models,
+        IReadOnlyList<DrlColorMaterialProfile> profiles, uint sourceTrigger, DrlBuildMapping? build,
+        IReadOnlyList<AmberSignalMaterialProfile>? indicators)
     {
         if (sourceTrigger is not (15 or 20 or 21)) throw new ArgumentOutOfRangeException(nameof(sourceTrigger));
         this.sourceTrigger = sourceTrigger;
+        indicatorRouting = indicators is not null;
         this.build = build ?? DrlBuildMapping.Steam;
+        Require(!indicatorRouting || this.build == DrlBuildMapping.Steam,
+            "Amber indicator routing is qualified only for the current Steam build.");
         this.read = read; this.write = write; this.sameCar = sameCar; this.writable = writable; this.module = module;
         Require(module >= 0x10000 && module <= ulong.MaxValue - this.build.SizeOfImage && sameCar(),
             "DRL color exact player/build identity is not ready.");
         var carKey = DrlColorProfileCatalog.NormalizeCar(car);
         Require(profiles.Count is > 0 and <= 512 && models.Count is > 0 and <= 512,
             "No bounded DRL color material candidates are available.");
-        var qualified = profiles.Select(DrlColorProfileCatalog.ValidateProfile).ToArray();
+        var indicatorRows = indicators?.Select(AmberSignalProfileCatalog.ValidateMaterial).ToArray();
+        var qualified = indicatorRows?.Select(r => r.Material).ToArray() ?? profiles.Select(DrlColorProfileCatalog.ValidateProfile).ToArray();
+        var supplemental = qualified.Any(p => p.SourceTrigger != 15);
+        Require(!supplemental || !indicatorRouting && sourceTrigger == 15 && carKey == "BMW_M4CS_25",
+            "Supplemental DRL routing requires the exact M4 CS.");
         var profileKeys = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         foreach (var profile in qualified)
             Require(profileKeys.Add(profile.Path + "\n" + profile.Id), "Duplicate DRL color material candidates.");
         var expected = qualified.GroupBy(p => @"Game:\Media\cars\" + carKey + "\\" + p.Path,
             StringComparer.OrdinalIgnoreCase).ToDictionary(g => g.Key, g => g.ToArray(), StringComparer.OrdinalIgnoreCase);
         var loaded = models.Where(m => expected.ContainsKey(Normalize(m.Path))).ToArray();
+        var missingIndicatorPaths = expected.Keys.Where(path => !loaded.Any(m => Normalize(m.Path).Equals(path, StringComparison.OrdinalIgnoreCase))).ToArray();
+        Require(!(indicatorRouting || supplemental) || missingIndicatorPaths.Length == 0,
+            "Amber signal preview is missing fitted lamps: " + string.Join(", ", missingIndicatorPaths) + ". Let the car finish loading, then retry. No partial route was applied.");
         Require(loaded.Length > 0 && loaded.Select(m => Normalize(m.Path)).Distinct(StringComparer.OrdinalIgnoreCase).Count() == loaded.Length &&
             loaded.Select(m => m.Wrapper).Distinct().Count() == loaded.Length &&
             loaded.Select(m => m.Instance).Distinct().Count() == loaded.Length &&
@@ -162,6 +194,8 @@ internal sealed class DrlColorRoute
             var tableBytes = Bytes(table, checked((int)count * 0x38));
             foreach (var profile in expected[path])
             {
+                var indicator = indicatorRows?.Single(r => r.Material.Path.Equals(profile.Path, StringComparison.OrdinalIgnoreCase) && r.Material.Id == profile.Id);
+                var expectedSourceTrigger = indicator?.SourceTrigger ?? (profile.SourceTrigger is 13 or 38 ? profile.SourceTrigger : sourceTrigger);
                 var layout = profile.Resource == DrlColorProfileCatalog.EmitterResource ||
                     profile.Resource == DrlColorProfileCatalog.RegularEmitterResource ? EmitterLayout :
                     profile.Resource == DrlColorProfileCatalog.ProjectorLensResource ? ProjectorLensLayout :
@@ -193,16 +227,23 @@ internal sealed class DrlColorRoute
                 var colors = parameters.Where(p => BitConverter.ToUInt64(p.Header) == module + this.build.ColorParameterVtableRva).ToArray();
                 var intensities = parameters.Where(p => BitConverter.ToUInt64(p.Header) == module + this.build.FloatParameterVtableRva &&
                     BitConverter.ToSingle(p.Header, 0x10) == profile.Intensity).ToArray();
+                var floatSources = parameters.Where(p => BitConverter.ToUInt64(p.Header) == module + this.build.FloatParameterVtableRva)
+                    .Select(p => BitConverter.ToSingle(p.Header, 0x10)).Order().ToArray();
+                var intensitySourceMatches = indicator?.IntensitySource == "ShaderDefault" || intensities.Length >= 1;
+                if (indicator?.FloatSources is { } expectedFloats)
+                    intensitySourceMatches &= floatSources.SequenceEqual(expectedFloats.Order());
                 var tint = profile.Tint.SelectMany(BitConverter.GetBytes).ToArray();
                 // Unrelated CH1 scalars commonly equal the authored intensity
                 // (especially 1). The family's mapped field below identifies
                 // intensity/exposure; this route never owns/writes it. Require a matching
                 // typed source value and retain EVERY captured parameter header.
                 var sourceTriggers = triggers.Select(p => BitConverter.ToUInt32(p.Header, 0x10)).Order().ToArray();
-                var expectedTriggers = new uint[] { sourceTrigger }.Concat(profile.OtherTriggers ?? []).Order().ToArray();
+                var expectedTriggers = new uint[] { expectedSourceTrigger }.Concat(profile.OtherTriggers ?? []).Order().ToArray();
                 var tintMatches = colors.Count(p => p.Header.AsSpan(0x10, 16).SequenceEqual(tint));
                 var emitterBase = profile.EmitterBaseTint?.SelectMany(BitConverter.GetBytes).ToArray();
-                Require(emitterBase is null || colors.Length == 2 && tintMatches >= 1 &&
+                var inheritedIndicatorBase = indicatorRouting && profile.TintSource == "ShaderDefault" && emitterBase is not null;
+                Require(emitterBase is null || inheritedIndicatorBase && colors.Length == 1 &&
+                    colors[0].Header.AsSpan(0x10, 16).SequenceEqual(emitterBase) || colors.Length == 2 && tintMatches >= 1 &&
                     colors.Any(p => p.Header.AsSpan(0x10, 16).SequenceEqual(emitterBase)) &&
                     (!emitterBase.SequenceEqual(tint) || tintMatches == 2),
                     "DRL emitter needs exactly its separately authored emission and base Color sources.");
@@ -219,17 +260,17 @@ internal sealed class DrlColorRoute
                     (!surfaceTint.SequenceEqual(tint) || tintMatches >= 2),
                     "DRL glass surface and emission need their separately authored Color sources.");
                 var switches = parameters.Where(p => BitConverter.ToUInt64(p.Header) == module + this.build.BoolParameterVtableRva && p.Header[0x10] == 1);
-                // Inherited tint is allowed only by the exact family defaults key
-                // validated above, with NO typed Color in the complete captured
-                // vector. An explicit color cannot silently become a default.
+                // Inherited tint requires the pinned family default and no
+                // typed emission Color. The indicator-only exception retains
+                // exactly one separately proved base Color; RGB remains blocked.
                 var tintSourceMatches = layout == EmitterLayout || layout == ProjectorLensLayout || layout == TrafficEmissionLayout
-                    ? profile.TintSource == "ShaderDefault" ? colors.Length == 0 :
+                    ? profile.TintSource == "ShaderDefault" ? inheritedIndicatorBase ? colors.Length == 1 : colors.Length == 0 :
                         emitterBase is null ? colors.Length == 1 && tintMatches == 1 : colors.Length == 2 && tintMatches >= 1
                     : colors.Length is > 0 and <= 8 && tintMatches >= 1 &&
                         (layout == StandardRadiosityLayout || switches.Any());
                 Require(sourceTriggers.SequenceEqual(expectedTriggers) &&
-                    tintSourceMatches && intensities.Length >= 1,
-                    "DRL color authored trigger/tint/intensity source is ambiguous or changed.");
+                    tintSourceMatches && intensitySourceMatches,
+                    $"DRL color authored trigger/tint/intensity source is ambiguous or changed: {profile.Path}; id={profile.Id}; {profile.Name}.");
                 var compiled = Pointer(material + 0x58);
                 Require(Heap(compiled), "DRL color compiled material is invalid.");
                 var compiledHeader = Bytes(compiled, 0x80); var cpu = Pointer(compiled + 0x10);
@@ -256,7 +297,7 @@ internal sealed class DrlColorRoute
                     (layout.SurfaceTint is not { } surfaceOffset || surfaceTint is not null &&
                         original.AsSpan(surfaceOffset, 16).SequenceEqual(surfaceTint)) &&
                     BitConverter.ToSingle(original, layout.Intensity) == profile.Intensity &&
-                    BitConverter.ToUInt32(original, layout.Trigger) == sourceTrigger &&
+                    BitConverter.ToUInt32(original, layout.Trigger) == expectedSourceTrigger &&
                     (layout.Switch is not { } switchOffset || BitConverter.ToUInt32(original, switchOffset) == 1) &&
                     (layout != EmitterLayout || BitConverter.ToUInt32(original, 0xC4) == 0 && BitConverter.ToUInt32(original, 0xC8) == 0) &&
                     // Regular emitter keeps the shader's channel-2 UV selector.
@@ -293,7 +334,11 @@ internal sealed class DrlColorRoute
                     External = external, ExternalHeader = externalHeader, ExternalBindings = externalBindings,
                     Compiled = compiled, CompiledHeader = compiledHeader, Cpu = cpu, Binding = binding, Buffer = buffer, Descriptor = descriptor,
                     Page = page, PageHeader = pageHeader, Mapped = mapped, Textures = textures, TextureBytes = textureBytes,
-                    Original = original, Last = original.ToArray(), Flags = Bytes(material + 0x80, 1)[0]
+                    Original = original, Last = original.ToArray(), Flags = Bytes(material + 0x80, 1)[0],
+                    IndicatorOutput = indicator?.TargetTrigger, IndicatorIntensity = indicator?.LitIntensity,
+                    IndicatorTint = indicator?.LitTint?.ToArray(),
+                    NormalTrigger = profile.SourceTrigger == 38 ? 0u : profile.SourceTrigger == 13 ? 15u : expectedSourceTrigger,
+                    SuppressedOverlay = DrlColorProfileCatalog.IsSuppressedDrlOverlay(profile)
                 });
             }
         }
@@ -301,6 +346,8 @@ internal sealed class DrlColorRoute
             targets.Select(t => t.Compiled).Distinct().Count() == targets.Count && targets.Select(t => t.Cpu).Distinct().Count() == targets.Count &&
             targets.Select(t => t.Binding).Distinct().Count() == targets.Count && targets.Select(t => t.Buffer).Distinct().Count() == targets.Count,
             "DRL color destinations are shared or ambiguous.");
+        Require(!(indicatorRouting || supplemental) || targets.Count == qualified.Length,
+            "Amber signal preview did not capture its complete material set.");
         var protectedRanges = targets.SelectMany(ProtectedRanges).ToArray();
         foreach (var target in targets)
             Require(!targets.Any(other => target != other && Overlaps(target.Mapped, target.Layout.BufferSize, other.Mapped, other.Layout.BufferSize)) &&
@@ -360,11 +407,11 @@ internal sealed class DrlColorRoute
     {
         renderOwner.Validate(); Require(sameCar(), "DRL color player/build identity changed."); ValidateBackend();
         Require(pending is null || targets.Contains(pending.Target) && pending.Target.Owned.Contains(pending.Offset) &&
-            pending.Target.Layout.OwnedOffsets.Contains(pending.Offset), "DRL color pending write has no owned destination.");
+            pending.Target.AllowedOffsets.Contains(pending.Offset), "DRL color pending write has no owned destination.");
         foreach (var t in targets)
         {
-            Require(t.Owned.All(t.Layout.OwnedOffsets.Contains) &&
-                (pending is null || pending.Target.Layout.OwnedOffsets.Contains(pending.Offset)),
+            Require(t.Owned.All(t.AllowedOffsets.Contains) &&
+                (pending is null || pending.Target.AllowedOffsets.Contains(pending.Offset)),
                 "DRL color attempted fields exceed color/native-strobe ownership.");
             // Fresh contiguous headers cover exactly the same pointer/field
             // proofs with fewer process reads. No snapshot survives Validate().
@@ -416,13 +463,13 @@ internal sealed class DrlColorRoute
 
     internal bool SetColor(float r, float g, float b, Func<bool>? shouldYield)
     {
-        Require(sourceTrigger == 15, "Native indicator proofs are read-only and cannot recolor signal bulbs.");
+        Require(!indicatorRouting && sourceTrigger == 15, "Indicator routes cannot recolor signal bulbs.");
         Require(new[] { r, g, b }.All(value => float.IsFinite(value) && value is >= 0 and <= DrlColorSelection.MaximumEmissionChannel),
             "DRL emission channels must be finite values between zero and four.");
         Require(pending is null, "An interrupted DRL color write must restore before another color update.");
         if (shouldYield?.Invoke() == true) return false;
         Validate(); var values = new[] { r, g, b };
-        foreach (var target in targets)
+        foreach (var target in targets.Where(target => !target.SuppressedOverlay))
             for (var index = 0; index < target.Layout.ColorOffsets.Length; index++)
             {
                 // Yield only between committed DWORDs. Every ownership guard
@@ -449,17 +496,19 @@ internal sealed class DrlColorRoute
 
     internal bool SetNativeStrobe(bool enabled, Func<bool>? shouldYield = null)
     {
-        Require(sourceTrigger == 15, "Native indicator proofs are read-only and cannot strobe signal bulbs.");
+        Require(!indicatorRouting && sourceTrigger == 15, "Indicator routes cannot strobe signal bulbs.");
         Require(pending is null, "An interrupted DRL write must restore before another update.");
         if (shouldYield?.Invoke() == true) return false;
-        if (!enabled && targets.All(target => !target.Owned.Contains(target.Layout.Trigger))) return true;
+        if (!enabled && targets.All(target => !target.Owned.Contains(target.Layout.Trigger) &&
+                BitConverter.ToUInt32(target.Original, target.Layout.Trigger) == target.NormalTrigger)) return true;
         Validate();
         foreach (var target in targets)
         {
             if (shouldYield?.Invoke() == true) return false;
             var offset = target.Layout.Trigger;
-            var desired = enabled ? BitConverter.GetBytes(NativeDrlStrobeSource.Trigger)
-                : target.Original.AsSpan(offset, 4).ToArray();
+            // This car's white day layer must remain dark in every grouped
+            // mode; its RGB, intensity, switch and native output38 stay untouched.
+            var desired = BitConverter.GetBytes(target.SuppressedOverlay ? 0u : enabled ? NativeDrlStrobeSource.Trigger : target.NormalTrigger);
             if (target.Last.AsSpan(offset, 4).SequenceEqual(desired)) continue;
             Validate();
             if (shouldYield?.Invoke() == true) return false;
@@ -469,9 +518,48 @@ internal sealed class DrlColorRoute
             desired.CopyTo(target.Last, offset); pending = null;
                 // The post-write Validate already read back the exact desired
                 // DWORD and all ownership fields; committing bookkeeping is local.
-            if (!enabled) target.Owned.Remove(offset);
+            if (!enabled && target.Original.AsSpan(offset, 4).SequenceEqual(desired)) target.Owned.Remove(offset);
         }
         return true;
+    }
+
+    // Selecting Original preserves the car-specific DRL grouping. RESET/exit
+    // instead use Restore(), returning source13 and every RGB byte exactly.
+    internal void RestoreOriginalColor()
+    {
+        Require(!indicatorRouting && pending is null, "No interrupted DRL color update may be replaced.");
+        Validate();
+        foreach (var target in targets)
+            foreach (var offset in target.Layout.ColorOffsets.Where(target.Owned.Contains).ToArray())
+                RestoreField(target, offset);
+    }
+
+    // The complete combined capture above proves that left/right storage is
+    // disjoint, including source objects. Native20/21 supply timing. Explicit
+    // per-material lit intensity/tint corrections share the same transactional
+    // DWORD guards and exact OFF restoration; CPU sources remain read-only.
+    internal void ApplyIndicatorRouting()
+    {
+        Require(indicatorRouting && pending is null, "No complete indicator route is ready.");
+        Validate();
+        foreach (var target in targets)
+        {
+            Require(target.IndicatorOutput is 20 or 21, "Indicator destination is invalid.");
+            var fields = new List<(int Offset, byte[] Desired)>();
+            if (target.IndicatorIntensity is { } intensity) fields.Add((target.Layout.Intensity, BitConverter.GetBytes(intensity)));
+            if (target.IndicatorTint is { } tint)
+                for (var i = 0; i < 3; i++) fields.Add((target.Layout.Tint + i * 4, BitConverter.GetBytes(tint[i])));
+            fields.Add((target.Layout.Trigger, BitConverter.GetBytes(target.IndicatorOutput.GetValueOrDefault())));
+            foreach (var (offset, desired) in fields)
+            {
+                if (target.Last.AsSpan(offset, 4).SequenceEqual(desired)) continue;
+                Validate();
+                var previous = target.Last.AsSpan(offset, 4).ToArray();
+                target.Owned.Add(offset); pending = new(target, offset, previous, desired);
+                write(target.Mapped + (ulong)offset, desired); Validate();
+                desired.CopyTo(target.Last, offset); pending = null;
+            }
+        }
     }
 
     internal void Restore()
@@ -481,7 +569,7 @@ internal sealed class DrlColorRoute
         // differ from both the prior frame and the captured authored value.
         if (pending is { } interrupted) RestoreField(interrupted.Target, interrupted.Offset);
         foreach (var target in targets.AsEnumerable().Reverse())
-            foreach (var offset in target.Layout.OwnedOffsets.Reverse().Where(target.Owned.Contains).ToArray())
+            foreach (var offset in target.AllowedOffsets.Reverse().Where(target.Owned.Contains).ToArray())
                 RestoreField(target, offset);
         Validate(); Require(!HasWrites, "DRL color restoration still owns an incomplete write.");
     }

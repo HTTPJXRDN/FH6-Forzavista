@@ -197,7 +197,7 @@ public partial class MainWindow
         await SetDrlColorAsync(current.WithStrobe(!_drlColorStatus.Strobe));
     }
 
-    private bool UsesDrlHazards => LightingFeaturePolicy.ExperimentalSignalsEnabled &&
+    private bool UsesDrlHazards => LightingFeaturePolicy.ExperimentalSignalsEnabled && LightingFeaturePolicy.DrlHazardFallbackEnabled &&
         (_drlColorStatus.Mode == DrlColorMode.Hazards ||
         !SignalPolicy.Capabilities("Steam 6.461.691.0", _sessionCarToken ?? "").Hazards &&
         NativeCarControl.HasDrlColorProfile(_sessionCarToken));
@@ -239,7 +239,7 @@ public partial class MainWindow
             if (!await TryEnterActionAsync("drlcolororiginal")) return;
             try
             {
-                var result = await Task.Run(NativeCarControl.RestoreTrackedDrlColor);
+                var result = await Task.Run(NativeCarControl.SelectOriginalDrlColor);
                 _drlColorStatus = NativeCarControl.GetDrlColorStatus();
                 SetControlsStatus(result.Message, result.Success ? Good : Warn);
             }

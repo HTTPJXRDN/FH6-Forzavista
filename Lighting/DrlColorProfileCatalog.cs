@@ -11,7 +11,7 @@ internal sealed record DrlColorMaterialProfile(string Path, uint Id, string Name
     bool? EmissiveSwitch = null, uint[]? OtherTriggers = null,
     string TintSource = "Instance", string? DefaultsKey = null, float[]? SurfaceTint = null,
     string TintPolicy = "White", float[]? LensTint = null, string LensTintSource = "Instance",
-    float[]? EmitterBaseTint = null);
+    float[]? EmitterBaseTint = null, uint SourceTrigger = 15);
 
 internal static class DrlColorProfileCatalog
 {
@@ -55,6 +55,11 @@ internal static class DrlColorProfileCatalog
             : Array.Empty<DrlColorMaterialProfile>();
     }
 
+    internal static bool HasSupplementalDrl(string car) =>
+        NormalizeCar(car) == "BMW_M4CS_25";
+
+    internal static bool IsSuppressedDrlOverlay(DrlColorMaterialProfile profile) => profile.SourceTrigger == 38;
+
     internal static string NormalizeCar(string car)
     {
         if (string.IsNullOrWhiteSpace(car) || car.Length > 96 ||
@@ -81,6 +86,22 @@ internal static class DrlColorProfileCatalog
                 RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
         var resource = profile.Resource?.Replace('/', '\\');
         var ch1Emitter = string.Equals(resource, EmitterResource, StringComparison.OrdinalIgnoreCase);
+        // M4 CS yellow strips are a separate authored headlight channel. Only
+        // these exact emitter records may join output15; projectors stay13.
+        var supplemental = profile.SourceTrigger == 13 && ch1Emitter && profile.Id == 5 &&
+            profile.Name == "Emitter_CH1_a" && profile.Intensity == 1 &&
+            profile.Tint.SequenceEqual(new float[] { 1, .92158186f, 0, 1 }) &&
+            (path.Equals(@"Scene\Exterior\PrimaryLights\headlightL_a.modelbin", StringComparison.OrdinalIgnoreCase) ||
+                path.Equals(@"Scene\Exterior\PrimaryLights\headlightR_a.modelbin", StringComparison.OrdinalIgnoreCase));
+        var overlay = profile.SourceTrigger == 38 &&
+            string.Equals(resource, GlassResource, StringComparison.OrdinalIgnoreCase) && profile.Id == 13 &&
+            profile.Name == "Glass_Detailed_CH1" && profile.Intensity == 8 && profile.EmissiveSwitch == true &&
+            profile.Tint.SequenceEqual(new float[] { .71569353f, .791298f, .9646863f, 1 }) &&
+            profile.LensTint is not null && profile.LensTint.SequenceEqual(new float[] { 1, 1, 1, 1 }) &&
+            (path.Equals(@"Scene\Exterior\PrimaryLights\headlightL_a.modelbin", StringComparison.OrdinalIgnoreCase) ||
+                path.Equals(@"Scene\Exterior\PrimaryLights\headlightR_a.modelbin", StringComparison.OrdinalIgnoreCase));
+        if (profile.SourceTrigger != 15 && !(supplemental || overlay))
+            throw new InvalidOperationException("Supplemental DRL source is not an exact reviewed strip.");
         var regularEmitter = string.Equals(resource, RegularEmitterResource, StringComparison.OrdinalIgnoreCase);
         var emitter = (ch1Emitter || regularEmitter) &&
             profile.Channel == "Emission" && profile.EmissiveSwitch is null && profile.OtherTriggers is null;
@@ -182,6 +203,14 @@ internal static class DrlColorProfileCatalog
             var car = NormalizeCar(entry.Car);
             var materialKeys = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
             var materials = entry.Materials.Select(ValidateProfile).ToArray();
+            if (materials.Any(p => p.SourceTrigger != 15) &&
+                (car != "BMW_M4CS_25" || materials.Length != 8 ||
+                    materials.Count(p => p.SourceTrigger == 13) != 2 ||
+                    materials.Count(p => p.SourceTrigger == 38) != 2 ||
+                    new[] { "headlightL_a.modelbin", "headlightR_a.modelbin" }.Any(file =>
+                        !new uint[] { 3, 5, 10, 13 }.All(id => materials.Any(p => p.Id == id &&
+                            System.IO.Path.GetFileName(p.Path).Equals(file, StringComparison.OrdinalIgnoreCase))))))
+                throw new InvalidOperationException("Supplemental DRLs require the complete exact M4 CS lamp set.");
             foreach (var material in materials)
                 if (!materialKeys.Add(material.Path + "\n" + material.Id))
                     throw new InvalidOperationException("The DRL color catalog contains a duplicate material.");

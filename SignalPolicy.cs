@@ -9,12 +9,19 @@ internal sealed record NativeSignalStatus(bool DirectionalAvailable, bool Hazard
         (action == "signalhazards" ? HazardsAvailable : DirectionalAvailable);
 }
 
-// Pure policy: explicit tested-car allowlist, not a guess from an L/R filename.
+// Explicit manual-trial admission. An enabled button still requires fresh
+// controller, current-player and fitted-material proof before any write.
 internal static class SignalPolicy
 {
     internal static (bool Directions, bool Hazards, string Description) Capabilities(string build, string car)
-        => LightingFeaturePolicy.ExperimentalSignalsEnabled ? MappedCapabilities(build, car)
-            : (false, false, LightingFeaturePolicy.SignalsDeferredMessage);
+        => !LightingFeaturePolicy.ExperimentalSignalsEnabled
+            ? (false, false, LightingFeaturePolicy.SignalsDeferredMessage)
+            : build != "Steam 6.461.691.0"
+                ? (false, false, "Amber signal preview is mapped for Steam 6.461.691.0 only.")
+            : car.Equals("ACU_RSXTYPES_02", StringComparison.OrdinalIgnoreCase) ||
+                car.Equals("MAZ_RX7_85", StringComparison.OrdinalIgnoreCase) || AmberSignalProfileCatalog.ForCar(car) is not null
+                ? MappedCapabilities(build, car)
+                : (false, false, "Amber signal preview: this car is outside the current test list.");
 
     // Retain the research allowlist independently of the shipped feature gate.
     internal static (bool Directions, bool Hazards, string Description) MappedCapabilities(string build, string car)
@@ -22,12 +29,12 @@ internal static class SignalPolicy
         : car.ToUpperInvariant() switch
         {
             "ACU_RSXTYPES_02" => (true, true, "RSX: separate front/rear signals."),
-            "MAZ_RX7_85" => (true, true, "1985 RX-7: stock native front/rear signals."),
+            "MAZ_RX7_85" => (true, true, "1985 RX-7: native front/rear signals; guarded brightness preview."),
             "DOD_CHARGERSRTHELLCAT_15" => (true, true, "Charger: amber fronts and red rear brake/turn lamps."),
             "ALF_GIULIAGTAM_21" => (false, true, "Giulia: FRONT hazards only; merged front emitter, independent sides/rear unverified."),
             "AUD_RS6AVANT_21" => (true, true, "RS6: amber fronts/mirrors and red rear strips; combined development trial, upgraded _b mirrors; right-mirror/selective-hazard recheck pending."),
-            _ => NativeHazardProfileCatalog.ForCar(car) is not null
-                ? (false, true, "Factory amber hazards: native21/20 front/rear candidate; fitted material checks required, visual verification pending.")
+            _ => AmberSignalProfileCatalog.ForCar(car) is not null
+                ? (true, true, "Amber signal PREVIEW: front/rear candidate; fitted material checks required, visual verification pending.")
                 : (false, false, "This car's indicator routing is not verified yet.")
         };
 

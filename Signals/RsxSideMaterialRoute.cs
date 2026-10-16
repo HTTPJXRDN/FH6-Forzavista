@@ -30,6 +30,7 @@ internal sealed class RsxSideMaterialRoute
     private readonly HashSet<ulong> mappedApplied = [];
     private ulong uploadService, uploadBackend, uploadVtable, uploadPages, uploadPagesEnd, uploadPageSize, uploadBase;
     private ulong activeVehicle, activePresentation, activeBindings, sharedLampOwner;
+    private ChargerRenderOwner? rootedOwner;
 
     private ulong Pointer(ulong address) => BitConverter.ToUInt64(read(address, 8));
     private static bool Heap(ulong value) => value is >= 0x10000000 and < 0x7FF000000000;
@@ -38,7 +39,7 @@ internal sealed class RsxSideMaterialRoute
     internal RsxSideMaterialRoute(Func<ulong, int, byte[]> read, Action<ulong, byte[]> write,
         Func<bool> sameCar, ulong module,
         IReadOnlyList<(ulong Wrapper, ulong Instance, ulong Resource, string Path)> models, uint output,
-        bool useCompiled = false, bool useMapped = false, Func<ulong, int, bool>? writable = null, ulong vehicle = 0)
+        bool useCompiled = false, bool useMapped = false, Func<ulong, int, bool>? writable = null, ulong vehicle = 0, ulong component = 0)
     {
         this.read = read; this.write = write; this.sameCar = sameCar; this.module = module; this.output = output;
         this.useCompiled = useCompiled || useMapped; this.useMapped = useMapped;
@@ -51,16 +52,26 @@ internal sealed class RsxSideMaterialRoute
         {
             activeVehicle = vehicle;
             if (!Heap(vehicle)) throw new InvalidOperationException("Mapped route needs the fresh current-player vehicle.");
-            activePresentation = Pointer(vehicle + 0x7918);
-            activeBindings = Pointer(activePresentation + 0x18);
-            sharedLampOwner = Pointer(models[0].Instance + 0x38);
-            if (!Heap(activePresentation) || !Heap(activeBindings) || !Heap(sharedLampOwner) ||
-                Pointer(sharedLampOwner) != module + 0x6474B18 ||
-                Pointer(activeBindings + 0x60) != sharedLampOwner + 0x20 ||
-                Pointer(sharedLampOwner + 0x20) != activeBindings + 0x60 ||
-                models.Any(m => Pointer(m.Instance + 0x38) != sharedLampOwner))
-                throw new InvalidOperationException("RSX player-presentation / lamp-owner reciprocal binding did not match; no writes.");
-            Console.WriteLine("Verified direct current-player presentation / shared lamp-owner reciprocal binding.");
+            if (component != 0)
+            {
+                rootedOwner = ChargerRenderOwner.Capture(read, sameCar, module, vehicle, component);
+                sharedLampOwner = rootedOwner.Pose;
+                if (models.Any(m => !rootedOwner.MatchesInstance(m.Instance)))
+                    throw new InvalidOperationException("RSX lamps are not rooted in the current player's render scene.");
+            }
+            else
+            {
+                activePresentation = Pointer(vehicle + 0x7918);
+                activeBindings = Pointer(activePresentation + 0x18);
+                sharedLampOwner = Pointer(models[0].Instance + 0x38);
+                if (!Heap(activePresentation) || !Heap(activeBindings) || !Heap(sharedLampOwner) ||
+                    Pointer(sharedLampOwner) != module + 0x6474B18 ||
+                    Pointer(activeBindings + 0x60) != sharedLampOwner + 0x20 ||
+                    Pointer(sharedLampOwner + 0x20) != activeBindings + 0x60 ||
+                    models.Any(m => Pointer(m.Instance + 0x38) != sharedLampOwner))
+                    throw new InvalidOperationException("RSX player-presentation / lamp-owner reciprocal binding did not match; no writes.");
+                Console.WriteLine("Verified direct current-player presentation / shared lamp-owner reciprocal binding.");
+            }
         }
         foreach (var model in models)
         {
@@ -220,7 +231,8 @@ internal sealed class RsxSideMaterialRoute
     internal void Validate(bool restoring = false)
     {
         if (!sameCar()) throw new InvalidOperationException("Car/scene changed; material access stopped.");
-        if (useMapped && (Pointer(activeVehicle + 0x7918) != activePresentation ||
+        rootedOwner?.Validate();
+        if (useMapped && rootedOwner is null && (Pointer(activeVehicle + 0x7918) != activePresentation ||
             Pointer(activePresentation + 0x18) != activeBindings || Pointer(sharedLampOwner) != module + 0x6474B18 ||
             Pointer(activeBindings + 0x60) != sharedLampOwner + 0x20 || Pointer(sharedLampOwner + 0x20) != activeBindings + 0x60))
             throw new InvalidOperationException("Current-player lamp-owner binding changed; access stopped.");

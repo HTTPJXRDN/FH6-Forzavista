@@ -5,7 +5,9 @@
     <UseWPF>true</UseWPF>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <Version>1.3.1.1</Version>
+    <Version>1.3.1.2</Version>
+    <!-- Current development preview. Published release trees keep their own gate. -->
+    <EnableExperimentalSignals Condition="'$(EnableExperimentalSignals)' == ''">false</EnableExperimentalSignals>
     <AssemblyName>Forzavista</AssemblyName>
     <Product>Forzavista Anywhere</Product>
     <Authors>JXRDN</Authors>
@@ -29,5 +31,6 @@
     <Resource Include="assets\Fonts\go3v2.ttf" />
     <EmbeddedResource Include="Lighting\drl-color-profiles.json" LogicalName="ForzavistaFreeRoam.Lighting.drl-color-profiles.json" />
     <EmbeddedResource Include="Signals\native-hazard-profiles.json" LogicalName="ForzavistaFreeRoam.Signals.native-hazard-profiles.json" />
+    <EmbeddedResource Include="Signals\amber-signal-profiles.json" LogicalName="ForzavistaFreeRoam.Signals.amber-signal-profiles.json" />
   </ItemGroup>
 </Project>

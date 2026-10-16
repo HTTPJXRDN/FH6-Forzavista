@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "Forzavista 1.3.2 Steam development": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "TEMP": "A:\\Forza Crypto Stuff\\Forzavista GitHub\\V1.3.2-Dev\\.build-temp",
+        "TMP": "A:\\Forza Crypto Stuff\\Forzavista GitHub\\V1.3.2-Dev\\.build-temp",
+        "DOTNET_BUNDLE_EXTRACT_BASE_DIR": "A:\\Forza Crypto Stuff\\Forzavista GitHub\\V1.3.2-Dev\\.bundle-extract",
+        "FORZAVISTA_BINDINGS_DIR": "A:\\Forza Crypto Stuff\\Forzavista GitHub\\V1.3.2-Dev\\Settings",
+        "FORZAVISTA_SESSION_LOG_DIR": "A:\\Forza Crypto Stuff\\Forzavista GitHub\\V1.3.2-Dev\\Research\\MenuSessions"
+      }
+    }
+  }
+}

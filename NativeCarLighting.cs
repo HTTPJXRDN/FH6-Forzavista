@@ -72,11 +72,18 @@ internal static partial class NativeCarControl
         var front = all || actions.Contains("lightsdrl");
         var head = all || actions.Contains("lightsheadlights");
         var rear = all || actions.Contains("lightsrear");
+        lock (SignalGate)
+        lock (DrlColorGate)
         lock (LightGate)
         {
             using var context = Locate(action: true);
             var identity = ValidateLightIdentity(context);
             ReconcileLightOwnership(context, identity);
+            if (front)
+            {
+                var grouping = EnsureSupplementalDrlGrouping(identity);
+                if (!grouping.Success) return grouping;
+            }
             var state = ReadLightStatus(context, identity);
             // Shared bindings align only their selected groups; a mixed group turns on.
             var on = !((!front || state.DrlOn) && (!head || state.HeadlightsOn) &&

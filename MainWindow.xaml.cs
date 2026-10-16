@@ -59,6 +59,10 @@ public partial class MainWindow : Window
     private bool _ownsPresentationFlag;
     private int _presentationRestoreGeneration;
     private bool _maxDetailOn;
+    private bool _maxDetailRequested;
+    private bool _maxDetailBuiltIn;
+    private bool _maxDetailAvailable;
+    private NativeEngineStatus _engineStatus = new(false, false, "Ignition not ready");
     private NativeLightStatus _lightStatus = new(false, false, false, "Lighting not ready");
     private NativeSignalStatus _signalStatus = new(false, false, SignalMode.Off, "Signals not ready");
     private bool _closing;
@@ -120,6 +124,7 @@ public partial class MainWindow : Window
         WireActionButton(AllPanelsButton, "toggleall", "EXPLODE");
         WireActionButton(ResetButton, "resetstate", "RESET STATE");
         WireActionButton(MaxDetailButton, "maxdetail", "MAX DETAIL: OFF");
+        WireActionButton(IgnitionButton, "toggleengine", "IGNITION: —");
         WireActionButton(DrlButton, "lightsdrl", "FRONT DRL: —");
         WireActionButton(RearDrlButton, "lightsrear", "REAR DRL: —");
         WireActionButton(HeadlightButton, "lightsheadlights", "HEADLIGHTS: —");
@@ -132,6 +137,7 @@ public partial class MainWindow : Window
         _actionButtons.Add(AllPanelsButton);
         _actionButtons.Add(ResetButton);
         _actionButtons.Add(MaxDetailButton);
+        _actionButtons.Add(IgnitionButton);
         _actionButtons.AddRange([DrlButton, RearDrlButton, HeadlightButton, AllLightsButton]);
         _actionButtons.AddRange([LeftIndicatorButton, RightIndicatorButton, HazardsButton]);
         LoadHotkeys();
@@ -330,6 +336,7 @@ public partial class MainWindow : Window
             "toggleall" or "explode" or "implode" => ToggleAllAsync(),
             "resetstate" => ResetAsync(),
             "maxdetail" => MaxDetailAsync(),
+            "toggleengine" => EngineAsync(),
             "lightsdrl" or "lightsrear" or "lightsheadlights" or "lightsall" => LightsAsync(action.ToLowerInvariant()),
             "signalleft" or "signalright" or "signalhazards" => SignalsAsync(action.ToLowerInvariant()),
             _ when action.StartsWith("lightsgroup:", StringComparison.OrdinalIgnoreCase)
@@ -558,17 +565,19 @@ public partial class MainWindow : Window
             CancelDrlColorPreparation();
             var colorResult = await Task.Run(NativeCarControl.RestoreTrackedDrlColor);
             var signalResult = await Task.Run(NativeCarControl.RestoreTrackedSignals);
+            var engineResult = await Task.Run(NativeCarControl.RestoreTrackedEngine);
             var message = await Task.Run(NativeCarControl.RestoreFreeRoamPresentationFlag);
             var lightMessage = await Task.Run(NativeCarControl.RestoreTrackedLights);
             var windowMessage = await Task.Run(NativeCarControl.RestoreTrackedWindows);
+            var detailResult = await Task.Run(NativeCarControl.RestoreTrackedMaxDetail);
             _openPanels.Clear();
             _openWindows.Clear();
             _ownsPresentationFlag = false;
             RefreshAllLabels();
             _drlColorStatus = NativeCarControl.GetDrlColorStatus();
             RefreshDrlColorControls();
-            SetControlsStatus($"{message} {lightMessage} {windowMessage} {signalResult.Message} {colorResult.Message}",
-                signalResult.Success && colorResult.Success ? Good : Warn);
+            SetControlsStatus($"{message} {lightMessage} {windowMessage} {signalResult.Message} {colorResult.Message} {engineResult.Message} {detailResult.Message}",
+                signalResult.Success && colorResult.Success && engineResult.Success && detailResult.Success ? Good : Warn);
         }
         catch (Exception ex) { SetControlsStatus(ex.Message, Warn); }
         finally { _actionGate.Release(); await PollStatusAsync(); }
@@ -615,15 +624,48 @@ public partial class MainWindow : Window
         try
         {
             CancelSignalPreparation();
-            var turnOn = !_maxDetailOn;
-            var message = await Task.Run(() => NativeCarControl.SetMaxDetail(turnOn));
-            _maxDetailOn = turnOn;
+            var turnOn = !_maxDetailRequested;
+            var result = await Task.Run(() => NativeCarControl.SetMaxDetail(turnOn));
+            _maxDetailOn = result.On;
+            _maxDetailRequested = result.On;
+            _maxDetailBuiltIn = false;
             MaxDetailButton.Style = (Style)FindResource(_maxDetailOn ? "PinkFilled" : "GhostButton");
             RefreshLabel("maxdetail");
-            SetControlsStatus(message, Good);
+            SetControlsStatus(result.Message, result.Success ? Good : Warn);
         }
         catch (Exception ex) { SetControlsStatus(ex.Message, Warn); }
         finally { _actionGate.Release(); await PollStatusAsync(); }
+    }
+
+    private async Task EngineAsync()
+    {
+        if (!await TryEnterActionAsync("toggleengine")) return;
+        IgnitionButton.IsEnabled = false;
+        try
+        {
+            _engineStatus = await Task.Run(NativeCarControl.ToggleEngine);
+            RefreshEngineLabel();
+            SetControlsStatus(_engineStatus.Message, Good);
+        }
+        catch (Exception ex)
+        {
+            SessionLog.Write("ignition_action_error", ex.ToString(), "toggleengine",
+                _sessionProcessId, _sessionCarToken, _sessionComponent);
+            SetControlsStatus(ex.Message, Warn);
+        }
+        finally
+        {
+            _actionGate.Release();
+            IgnitionButton.IsEnabled = !_closing && _engineStatus.Available;
+            await PollStatusAsync();
+        }
+    }
+
+    private void RefreshEngineLabel()
+    {
+        IgnitionButton.Style = (Style)FindResource(_engineStatus.Available && _engineStatus.On ? "PinkFilled" : "GhostButton");
+        IgnitionButton.ToolTip = _engineStatus.Message;
+        RefreshLabel("toggleengine");
     }
 
     // ================= status polling =================
@@ -821,12 +863,28 @@ public partial class MainWindow : Window
             if (DeferStatusSnapshot(generation)) return;
             var status = await Task.Run(NativeCarControl.GetStatus);
             if (DeferStatusSnapshot(generation)) return;
+            var nextEngineStatus = status.Engine ?? new(false, false, "Ignition requires a loaded, supported player car.");
+            if (_engineStatus != nextEngineStatus)
+                SessionLog.Write("ignition_status_changed",
+                    $"available={nextEngineStatus.Available}; on={nextEngineStatus.On}; {nextEngineStatus.Message}",
+                    gamePid: status.ProcessId, carToken: status.CarToken, component: status.Component);
+            _engineStatus = nextEngineStatus;
+            RefreshEngineLabel();
             var lights = status.Ready
                 ? await Task.Run(NativeCarControl.GetLightStatus)
                 : new(false, false, false, "Lighting requires a loaded, supported player car.");
             if (DeferStatusSnapshot(generation)) return;
             _lightStatus = lights;
             RefreshLightLabels();
+            var detailStatus = await Task.Run(NativeCarControl.GetMaxDetailStatus);
+            if (DeferStatusSnapshot(generation)) return;
+            _maxDetailOn = detailStatus.On;
+            _maxDetailRequested = detailStatus.Requested;
+            _maxDetailBuiltIn = detailStatus.BuiltIn;
+            _maxDetailAvailable = detailStatus.Available;
+            MaxDetailButton.Style = (Style)FindResource(_maxDetailOn || _maxDetailBuiltIn ? "PinkFilled" : "GhostButton");
+            MaxDetailButton.ToolTip = detailStatus.Message;
+            RefreshLabel("maxdetail");
             if (_closing) return;
             if (_sessionProcessId != status.ProcessId || _sessionVehicle != status.Vehicle ||
                 _sessionComponent != status.Component ||
@@ -869,6 +927,9 @@ public partial class MainWindow : Window
 
             if (_bindMode) { SetActionsEnabled(true); return; }
             SetActionsEnabled(false);
+            // Render cleanup is independent of the current car's panel bindings.
+            // Keep OFF/RESET available when those bindings change between views.
+            MaxDetailButton.IsEnabled = _maxDetailAvailable;
             if (status.Ready)
             {
                 foreach (var action in NativeCarControl.SupportedFreeRoamPanelActions
@@ -884,7 +945,7 @@ public partial class MainWindow : Window
                 if (_buttonsByAction.TryGetValue("toggleroof", out var roof)) roof.IsEnabled = true;
                 AllPanelsButton.IsEnabled = true;
                 ResetButton.IsEnabled = true;
-                MaxDetailButton.IsEnabled = true;
+                IgnitionButton.IsEnabled = _engineStatus.Available;
                 DrlButton.IsEnabled = _lightStatus.Available;
                 RearDrlButton.IsEnabled = _lightStatus.Available && _lightStatus.RearControlAvailable;
                 HeadlightButton.IsEnabled = _lightStatus.Available && _lightStatus.HeadlightControlAvailable;
@@ -980,14 +1041,24 @@ public partial class MainWindow : Window
             lights = new(false, "Lighting cleanup failed: " + ex.GetBaseException().Message);
         }
         SessionLog.Write("exit_cleanup_step", $"normal lights: success={lights.Success}; {lights.Message}");
+        NativeLightActionResult engine;
+        try { engine = NativeCarControl.RestoreTrackedEngine(); }
+        catch (Exception ex)
+        {
+            SessionLog.Write("ignition_restore_on_exit_failed", ex.ToString());
+            engine = new(false, "Ignition cleanup failed: " + ex.Message);
+        }
+        SessionLog.Write("exit_cleanup_step", $"ignition: success={engine.Success}; {engine.Message}");
         // Native ownership is also captured if a later trigger fails before
         // the UI marks its panel open. Restore only that captured ownership.
         try { SessionLog.Write("exit_cleanup_step", "presentation: " + NativeCarControl.RestoreFreeRoamPresentationFlag()); }
         catch (Exception ex) { SessionLog.Write("presentation_restore_on_exit_failed", ex.ToString()); }
+        var detail = NativeCarControl.RestoreTrackedMaxDetail();
+        SessionLog.Write("exit_cleanup_step", $"MAX DETAIL: success={detail.Success}; {detail.Message}");
         _openPanels.Clear();
         _ownsPresentationFlag = false;
-        var failures = new[] { colors, signals, lights }.Where(result => !result.Success).ToArray();
-        var cleanup = failures.Length == 0 ? new NativeLightActionResult(true, "Tracked lighting restored.")
+        var failures = new[] { colors, signals, lights, engine, detail }.Where(result => !result.Success).ToArray();
+        var cleanup = failures.Length == 0 ? new NativeLightActionResult(true, "Tracked lighting, ignition and MAX DETAIL restored or released to the game.")
             : new(false, string.Join(" ", failures.Select(result => result.Message)));
         SessionLog.Write("exit_lighting_cleanup", $"success={cleanup.Success}; elapsedMs={cleanupClock.ElapsedMilliseconds}; {cleanup.Message}");
         return cleanup;
@@ -1017,8 +1088,8 @@ public partial class MainWindow : Window
         {
             var result = await Task.Run(RestoreOnExit);
             if (!result.Success && MessageBox.Show(this,
-                    result.Message + "\n\nReturn to normal Free Roam and use RESET STATE to retry.\nExit anyway without verified cleanup?",
-                    "Lamp cleanup not verified", MessageBoxButton.YesNo, MessageBoxImage.Warning,
+                    result.Message + "\n\nWait for the current scene to finish loading and use RESET STATE to retry.\nExit anyway without verified cleanup?",
+                    "Control cleanup not verified", MessageBoxButton.YesNo, MessageBoxImage.Warning,
                     MessageBoxResult.No) != MessageBoxResult.Yes)
             {
                 _closing = false;
@@ -1286,7 +1357,8 @@ public partial class MainWindow : Window
     // ================= labels & persistence =================
 
     private string GetBaseLabel(string action) =>
-        action == "signalhazards" && UsesDrlHazards ? DrlHazardsLabel
+        action == "toggleengine" ? "IGNITION: " + (!_engineStatus.Available ? "—" : _engineStatus.On ? "ON" : "OFF")
+        : action == "signalhazards" && UsesDrlHazards ? DrlHazardsLabel
         : action is "signalleft" or "signalright" or "signalhazards"
             ? SignalPolicy.Label(action, _signalStatus)
         : action is "lightsdrl" or "lightsrear" or "lightsheadlights" or "lightsall"
@@ -1300,7 +1372,8 @@ public partial class MainWindow : Window
         action.Equals("toggleall", StringComparison.OrdinalIgnoreCase)
             ? (AreAllExplodePanelsOpen() ? "IMPLODE" : "EXPLODE")
         : action.Equals("maxdetail", StringComparison.OrdinalIgnoreCase)
-            ? (_maxDetailOn ? "MAX DETAIL: ON" : "MAX DETAIL: OFF")
+            ? (_maxDetailOn ? "MAX DETAIL: ON" : _maxDetailRequested ? "MAX DETAIL: RESET"
+                : _maxDetailBuiltIn ? "MAX DETAIL: GAME" : "MAX DETAIL: OFF")
             : action.StartsWith("toggle", StringComparison.OrdinalIgnoreCase)
                 ? (Parts.FirstOrDefault(part =>
                     action.Equals("toggle" + part.OpenAction[4..], StringComparison.OrdinalIgnoreCase)) is { } part &&

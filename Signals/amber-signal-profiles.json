@@ -1,0 +1,5871 @@
+{
+  "FormatVersion": 1,
+  "Cars": [
+    {
+      "Car": "AUD_S1_15",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/exterior/PrimaryLights/headlightL_a.modelbin",
+            "Id": 0,
+            "Name": "lbk_standardch1_026_custom_Turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 32.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            6.0,
+            1.0,
+            6.0,
+            1.0,
+            32.0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/PrimaryLights/headlightR_a.modelbin",
+            "Id": 0,
+            "Name": "lbk_standardch1_026_custom_Turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 32.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            6.0,
+            1.0,
+            6.0,
+            1.0,
+            32.0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/SecondaryLights/taillightL_a.modelbin",
+            "Id": 4,
+            "Name": "Turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 5.657,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            10.0,
+            10.0,
+            10.0,
+            10.0,
+            1.0,
+            1.0,
+            5.657
+          ],
+          "LitIntensity": 16
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/SecondaryLights/taillightR_a.modelbin",
+            "Id": 4,
+            "Name": "Turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 5.657,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            10.0,
+            10.0,
+            10.0,
+            10.0,
+            1.0,
+            1.0,
+            5.657
+          ],
+          "LitIntensity": 16
+        }
+      ]
+    },
+    {
+      "Car": "CHE_CORVETTEZ06_15",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightL_a.modelbin",
+            "Id": 5,
+            "Name": "LBK_standardCH1_003_LFTurn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            10.0,
+            8.0,
+            10.0,
+            8.0
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightR_a.modelbin",
+            "Id": 6,
+            "Name": "LBK_standardCH1_003_LFTurn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            10.0,
+            8.0,
+            10.0,
+            8.0
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightLBulbs_a.modelbin",
+            "Id": 1,
+            "Name": "gls_lightBulb_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 8.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "LensTintSource": "CompiledWhite"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            8.0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightL_a.modelbin",
+            "Id": 7,
+            "Name": "LBK_standardCH1_006_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.414,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.414,
+            -0.3
+          ],
+          "LitIntensity": 16
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightRBulbs_a.modelbin",
+            "Id": 1,
+            "Name": "gls_lightBulb_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 8.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            8.0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightR_a.modelbin",
+            "Id": 7,
+            "Name": "LBK_standardCH1_006_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.414,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.414,
+            -0.3
+          ],
+          "LitIntensity": 16
+        }
+      ]
+    },
+    {
+      "Car": "MAZ_MX5RF_22",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightLBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_lightbulb",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 0.03125,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.22322798,
+              0.0129830325,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            0.03125
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightL_a.modelbin",
+            "Id": 7,
+            "Name": "chrome_003",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 0.03125,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.03125
+          ],
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightL_a.modelbin",
+            "Id": 3,
+            "Name": "metal_satin",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            10.0,
+            10.0,
+            1.0,
+            1.0,
+            -0.297
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightRBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_lightbulb",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 0.03125,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.22322798,
+              0.0129830325,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            0.03125
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightR_a.modelbin",
+            "Id": 7,
+            "Name": "chrome_003",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 0.03125,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.03125
+          ],
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightR_a.modelbin",
+            "Id": 3,
+            "Name": "metal_satin",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            10.0,
+            10.0,
+            1.0,
+            1.0,
+            -0.297
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightL_a.modelbin",
+            "Id": 8,
+            "Name": "metal_satin",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            1.0,
+            15.0,
+            1.0,
+            1.0
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 16
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightR_a.modelbin",
+            "Id": 8,
+            "Name": "metal_satin",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            1.0,
+            15.0,
+            1.0,
+            1.0
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 16
+        }
+      ]
+    },
+    {
+      "Car": "MAZ_RX7_85",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/exterior/BumperF/bumperFSideMarkers_a.modelbin",
+            "Id": 0,
+            "Name": "LBK_smoothChrome_left",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 8.0,
+            "TintPolicy": "White",
+            "TintSource": "ShaderDefault",
+            "DefaultsKey": "emitter_ch1.white:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178"
+          },
+          "SourceTrigger": 21,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            8.0,
+            -0.643
+          ],
+          "LitIntensity": 16
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/BumperF/bumperFSideMarkers_a.modelbin",
+            "Id": 3,
+            "Name": "LBK_smoothChrome_right",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 8.0,
+            "TintPolicy": "White",
+            "TintSource": "ShaderDefault",
+            "DefaultsKey": "emitter_ch1.white:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178"
+          },
+          "SourceTrigger": 20,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            8.0,
+            -0.643
+          ],
+          "LitIntensity": 16
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/SecondaryLights/taillightL_a.modelbin",
+            "Id": 2,
+            "Name": "LBK_smoothChrome_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 8.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 21,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            8.0
+          ],
+          "LitIntensity": 16
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/SecondaryLights/taillightR_a.modelbin",
+            "Id": 2,
+            "Name": "LBK_smoothChrome_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 8.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 20,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            8.0
+          ],
+          "LitIntensity": 16
+        }
+      ]
+    },
+    {
+      "Car": "MIT_GALANTVR4_92",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightLBulbs_a.modelbin",
+            "Id": 4,
+            "Name": "gls_lightbulb_turnleft",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              1.0,
+              0.66538733,
+              0.4178851,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              0.8069523,
+              0.11443538,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            1.0
+          ],
+          "LitIntensity": 4,
+          "LitTint": [
+            0.45,
+            1,
+            0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightL_a.modelbin",
+            "Id": 2,
+            "Name": "LBK_smoothChrome_leftTurn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "White",
+            "TintSource": "ShaderDefault",
+            "DefaultsKey": "emitter_ch1.white:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+            "EmitterBaseTint": [
+              0.791298,
+              0.3967552,
+              0.01096009,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 8,
+          "LitTint": [
+            0.62396044,
+            0.17788842,
+            0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightRBulbs_a.modelbin",
+            "Id": 4,
+            "Name": "gls_lightbulb_turnright",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              1.0,
+              0.66538733,
+              0.4178851,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              0.8069523,
+              0.11443538,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            1.0
+          ],
+          "LitIntensity": 4,
+          "LitTint": [
+            0.45,
+            1,
+            0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightR_a.modelbin",
+            "Id": 2,
+            "Name": "LBK_smoothChrome_rightTurn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "White",
+            "TintSource": "ShaderDefault",
+            "DefaultsKey": "emitter_ch1.white:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+            "EmitterBaseTint": [
+              0.791298,
+              0.3967552,
+              0.01096009,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 8,
+          "LitTint": [
+            0.62396044,
+            0.17788842,
+            0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightLBulbs_a.modelbin",
+            "Id": 1,
+            "Name": "incandescent_1_left",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 2048.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            2048.0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightL_a.modelbin",
+            "Id": 2,
+            "Name": "lbk_smoothChrome_leftTurn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 2.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            2.0
+          ],
+          "LitIntensity": 16
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightRBulbs_a.modelbin",
+            "Id": 1,
+            "Name": "incandescent_1_right",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 2048.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            2048.0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightR_a.modelbin",
+            "Id": 2,
+            "Name": "lbk_smoothChrome_leftTurn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 2.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            2.0
+          ],
+          "LitIntensity": 16
+        }
+      ]
+    },
+    {
+      "Car": "MIT_PAJERO_95",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightLBulbs_a.modelbin",
+            "Id": 1,
+            "Name": "gls_lightbulb_a",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 0.5,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              0.8069523,
+              0.11443538,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            0.5
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightL_a.modelbin",
+            "Id": 1,
+            "Name": "lights_smooth_CH1",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 0.5,
+            "TintPolicy": "AuthoredEmission",
+            "EmitterBaseTint": [
+              0.65140563,
+              0.19120169,
+              0.084376216,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.5
+          ],
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightRBulbs_a.modelbin",
+            "Id": 1,
+            "Name": "gls_lightbulb_b",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 0.5,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              0.8069523,
+              0.11443538,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            0.5
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightR_a.modelbin",
+            "Id": 1,
+            "Name": "lights_smooth_CH1",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 0.5,
+            "TintPolicy": "AuthoredEmission",
+            "EmitterBaseTint": [
+              0.65140563,
+              0.19120169,
+              0.084376216,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.5
+          ],
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightLBulbs_a.modelbin",
+            "Id": 2,
+            "Name": "gls_lightbulb_b",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 11.314,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            11.314
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightL_a.modelbin",
+            "Id": 0,
+            "Name": "lights_smooth_CH1",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 0.5,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.5
+          ],
+          "LitIntensity": 16
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightRBulbs_a.modelbin",
+            "Id": 2,
+            "Name": "gls_lightbulb_a",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 11.314,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            11.314
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightR_a.modelbin",
+            "Id": 0,
+            "Name": "lights_smooth_CH1",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 0.5,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.5
+          ],
+          "LitIntensity": 16
+        }
+      ]
+    },
+    {
+      "Car": "SUB_WRXSTI_04",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightLBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_lightbulb_costom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 5.657,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 21,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            5.657
+          ],
+          "LitTint": [
+            0.62396044,
+            0.55,
+            0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightL_a.modelbin",
+            "Id": 8,
+            "Name": "LBK_smoothChrome_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 4.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 21,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            4.0
+          ],
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightRBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_lightbulb_costom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 5.657,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 20,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            5.657
+          ],
+          "LitTint": [
+            0.62396044,
+            0.55,
+            0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightR_a.modelbin",
+            "Id": 8,
+            "Name": "LBK_smoothChrome_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 4.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 20,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            4.0
+          ],
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightLBulbs_a.modelbin",
+            "Id": 3,
+            "Name": "gls_lightbulb_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 0.177,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 20,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            0.177
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightL_a.modelbin",
+            "Id": 9,
+            "Name": "LBK_standardCH1_023_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 16.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 21,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            16.0,
+            -0.483
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightRBulbs_a.modelbin",
+            "Id": 3,
+            "Name": "gls_lightbulb_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 0.177,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 21,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            0.177
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightR_a.modelbin",
+            "Id": 9,
+            "Name": "LBK_standardCH1_023_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 16.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 20,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            16.0,
+            -0.483
+          ]
+        }
+      ]
+    },
+    {
+      "Car": "TOY_411_COROLLAFD_19",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/Exterior/Doors/wingMirrorL_a.modelbin",
+            "Id": 6,
+            "Name": "lights_smooth_CH1",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "mirror",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            -0.742
+          ],
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/Doors/wingMirrorR_a.modelbin",
+            "Id": 6,
+            "Name": "lights_smooth_CH1",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "mirror",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            -0.742
+          ],
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightL_a.modelbin",
+            "Id": 2,
+            "Name": "metal_satin",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            1.0
+          ],
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightR_a.modelbin",
+            "Id": 2,
+            "Name": "metal_satin",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            1.0
+          ],
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightL_a.modelbin",
+            "Id": 4,
+            "Name": "lights_smooth_CH1",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 2.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            15.0,
+            15.0,
+            0.565,
+            1.0,
+            0.695,
+            0.913,
+            2.0,
+            0.0
+          ],
+          "LitIntensity": 16
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightR_a.modelbin",
+            "Id": 4,
+            "Name": "lights_smooth_CH1",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 2.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            15.0,
+            15.0,
+            0.565,
+            1.0,
+            0.695,
+            0.913,
+            2.0,
+            0.0
+          ],
+          "LitIntensity": 16
+        }
+      ]
+    },
+    {
+      "Car": "TVR_CERBERA_98",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightLBulbs_a.modelbin",
+            "Id": 1,
+            "Name": "chrome",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 0.5,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.5
+          ],
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightLBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_colored",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 0.03125,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              0.8069523,
+              0.11443538,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            0.03125
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightL_a.modelbin",
+            "Id": 2,
+            "Name": "lights_smooth_CH1_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 0.5,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.5
+          ],
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightRBulbs_a.modelbin",
+            "Id": 1,
+            "Name": "chrome",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 0.5,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.5
+          ],
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightRBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_colored",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 0.03125,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              0.8069523,
+              0.11443538,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            0.03125
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightR_a.modelbin",
+            "Id": 2,
+            "Name": "lights_smooth_CH1_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 0.5,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.5
+          ],
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightLBulbs_a.modelbin",
+            "Id": 4,
+            "Name": "gls_lightbulb_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 0.01563,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              0.8069523,
+              0.11443538,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            0.01563
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightLBulbs_a.modelbin",
+            "Id": 5,
+            "Name": "lights_smooth_CH1_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 0.03125,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.03125
+          ],
+          "LitIntensity": 16
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightL_a.modelbin",
+            "Id": 10,
+            "Name": "lights_smooth_CH1_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 0.03125,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.03125
+          ],
+          "LitIntensity": 16
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightRBulbs_a.modelbin",
+            "Id": 4,
+            "Name": "gls_lightbulb_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 0.01563,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              0.8069523,
+              0.11443538,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            0.01563
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightRBulbs_a.modelbin",
+            "Id": 5,
+            "Name": "lights_smooth_CH1_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 0.03125,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.03125
+          ],
+          "LitIntensity": 16
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightR_a.modelbin",
+            "Id": 9,
+            "Name": "lights_smooth_CH1_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 0.03125,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.03125
+          ],
+          "LitIntensity": 16
+        }
+      ]
+    },
+    {
+      "Car": "WUL_HONGGUANGS_20",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightL_a.modelbin",
+            "Id": 6,
+            "Name": "metal_satin",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            8.0,
+            8.0,
+            1.0,
+            1.0
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightR_a.modelbin",
+            "Id": 6,
+            "Name": "metal_satin",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            8.0,
+            8.0,
+            1.0,
+            1.0
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightL_a.modelbin",
+            "Id": 5,
+            "Name": "lights_smooth_CH1_Turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 5.657,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            12.0,
+            12.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            5.657
+          ],
+          "LitIntensity": 16
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightR_a.modelbin",
+            "Id": 5,
+            "Name": "lights_smooth_CH1_Turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 5.657,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            12.0,
+            12.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            5.657
+          ],
+          "LitIntensity": 16
+        }
+      ]
+    },
+    {
+      "Car": "WUL_HONGGUANGSFE_20",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/exterior/primarylights/headlightl_a.modelbin",
+            "Id": 6,
+            "Name": "metal_satin",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            8.0,
+            8.0,
+            1.0,
+            1.0
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/primarylights/headlightr_a.modelbin",
+            "Id": 6,
+            "Name": "metal_satin",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            8.0,
+            8.0,
+            1.0,
+            1.0
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/secondarylights/taillightl_a.modelbin",
+            "Id": 5,
+            "Name": "lights_smooth_CH1_Turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 5.657,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            12.0,
+            12.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            5.657
+          ],
+          "LitIntensity": 16
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/secondarylights/taillightr_a.modelbin",
+            "Id": 5,
+            "Name": "lights_smooth_CH1_Turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 5.657,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            12.0,
+            12.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            5.657
+          ],
+          "LitIntensity": 16
+        }
+      ]
+    },
+    {
+      "Car": "ALF_155_92",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/exterior/PrimaryLights/headlightLBulbs_a.modelbin",
+            "Id": 3,
+            "Name": "gls_lightBulb_custom_01",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            1.0
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/PrimaryLights/headlightRBulbs_a.modelbin",
+            "Id": 3,
+            "Name": "gls_lightBulb_custom_01",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            1.0
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/SecondaryLights/taillightLBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_lightbulb_custom_01",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            1.0
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/SecondaryLights/taillightRBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_lightbulb_custom_01",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            1.0
+          ],
+          "LitIntensity": 4
+        }
+      ]
+    },
+    {
+      "Car": "ARI_NOMAD_16",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/Exterior/Doors/wingMirrorL_a.modelbin",
+            "Id": 3,
+            "Name": "metal_satin",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "mirror",
+          "FloatSources": [
+            -0.818
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/Doors/wingMirrorR_a.modelbin",
+            "Id": 3,
+            "Name": "metal_satin",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "mirror",
+          "FloatSources": [
+            -0.818
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightLBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_clear",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 128.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            128.0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightRBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_clear",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 128.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            128.0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightLBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_clear",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 2896.32,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            1.0,
+            0.86,
+            0.86,
+            2896.32
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightL_a.modelbin",
+            "Id": 7,
+            "Name": "lbk_smooth_metal_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            -0.604
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 16
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightRBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_clear",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 2896.32,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            1.0,
+            0.86,
+            0.86,
+            2896.32
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightR_a.modelbin",
+            "Id": 7,
+            "Name": "lbk_smooth_metal_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            -0.604
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 16
+        }
+      ]
+    },
+    {
+      "Car": "AUD_RS4_01",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightLBulbs_a.modelbin",
+            "Id": 1,
+            "Name": "LBK_standardCH1_003_turnlight",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 2.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            2.0
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightRBulbs_a.modelbin",
+            "Id": 1,
+            "Name": "LBK_standardCH1_003_turnlight",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 2.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            2.0
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightLBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "lbk_smoothchrome_turnlight",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 256.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            256.0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightRBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "lbk_smoothchrome_turnlight",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 256.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            256.0
+          ]
+        }
+      ]
+    },
+    {
+      "Car": "AUD_RS6_03",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/exterior/PrimaryLights/headlightLBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_lightbulb_custom_Turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 2.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            2.0
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/PrimaryLights/headlightL_a.modelbin",
+            "Id": 1,
+            "Name": "LBK_smoothChrome_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/PrimaryLights/headlightRBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_lightbulb_custom_Turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 2.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            2.0
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/PrimaryLights/headlightR_a.modelbin",
+            "Id": 1,
+            "Name": "LBK_smoothChrome_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/SecondaryLights/taillightLBulbs_a.modelbin",
+            "Id": 2,
+            "Name": "gls_lightbulb_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 32768.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            32768.0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/SecondaryLights/taillightRBulbs_a.modelbin",
+            "Id": 2,
+            "Name": "gls_lightbulb_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 32768.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            32768.0
+          ]
+        }
+      ]
+    },
+    {
+      "Car": "FOR_RANGERT6_14",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/exterior/PrimaryLights/headlightLBulbs_a.modelbin",
+            "Id": 2,
+            "Name": "gls_lightBulb_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 2.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            2.0
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/PrimaryLights/headlightRBulbs_a.modelbin",
+            "Id": 2,
+            "Name": "gls_lightBulb_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 2.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            2.0
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/SecondaryLights/taillightLBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_lightBulb_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 131072.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            131072.0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/SecondaryLights/taillightL_a.modelbin",
+            "Id": 0,
+            "Name": "LBK_standardCH1_026_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              0.66538733,
+              0.4178851,
+              1.0
+            ],
+            "Intensity": 32.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            7.5,
+            7.5,
+            10.0,
+            5.0,
+            1.0,
+            1.0,
+            32.0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/SecondaryLights/taillightRBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_lightBulb_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 131072.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            131072.0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/SecondaryLights/taillightR_a.modelbin",
+            "Id": 0,
+            "Name": "LBK_standardCH1_026_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              0.66538733,
+              0.4178851,
+              1.0
+            ],
+            "Intensity": 32.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            7.5,
+            7.5,
+            10.0,
+            5.0,
+            1.0,
+            1.0,
+            32.0
+          ]
+        }
+      ]
+    },
+    {
+      "Car": "HEN_VENOMGT_12",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightLBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_lightBulb_LF",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            1.0
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightRBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_lightBulb_LF",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            1.0
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightLBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_lightBulb_LF_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 32768.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            32768.0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightL_a.modelbin",
+            "Id": 5,
+            "Name": "turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "White",
+            "TintSource": "ShaderDefault",
+            "DefaultsKey": "emitter_ch1.white:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            10.0,
+            10.0,
+            10.0,
+            10.0
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 16
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightRBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_lightBulb_RF_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 32768.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            32768.0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightR_a.modelbin",
+            "Id": 5,
+            "Name": "turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "White",
+            "TintSource": "ShaderDefault",
+            "DefaultsKey": "emitter_ch1.white:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            10.0,
+            10.0,
+            10.0,
+            10.0
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 16
+        }
+      ]
+    },
+    {
+      "Car": "HON_CIVICTYPER_07",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/exterior/PrimaryLights/headlightLBulbs_a.modelbin",
+            "Id": 2,
+            "Name": "gls_lightbulbs_custom_01",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            1.0
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/PrimaryLights/headlightRBulbs_a.modelbin",
+            "Id": 2,
+            "Name": "gls_lightbulbs_custom_01",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            1.0
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/SecondaryLights/taillightLBulbs_a.modelbin",
+            "Id": 2,
+            "Name": "gls_lightbulbs_custom_04",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 256.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.22322798,
+              0.0129830325,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            256.0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/SecondaryLights/taillightRBulbs_a.modelbin",
+            "Id": 2,
+            "Name": "gls_lightbulbs_custom_04",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 256.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.22322798,
+              0.0129830325,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            256.0
+          ]
+        }
+      ]
+    },
+    {
+      "Car": "LEX_LFA_10",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightLBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_lightbulb",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 5.657,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            5.657
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightRBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_lightbulb",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 5.657,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            5.657
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightLBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_lightbulb",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 45.255,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            45.255
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightRBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_lightbulb",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 45.255,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            45.255
+          ]
+        }
+      ]
+    },
+    {
+      "Car": "LEX_LFAFE_10",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/exterior/PrimaryLights/headlightlbulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_lightbulb",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 5.657,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            5.657
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/PrimaryLights/headlightrbulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_lightbulb",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 5.657,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            5.657
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/secondarylights/taillightlbulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_lightbulb",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 45.255,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            45.255
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/secondarylights/taillightrbulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_lightbulb",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 45.255,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            45.255
+          ]
+        }
+      ]
+    },
+    {
+      "Car": "LOT_EXIGECUP430_18",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightLBulbs_a.modelbin",
+            "Id": 1,
+            "Name": "gls_colored",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              1.0,
+              0.66538733,
+              0.4178851,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              0.8069523,
+              0.11443538,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            1.0
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightRBulbs_a.modelbin",
+            "Id": 1,
+            "Name": "gls_colored",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              1.0,
+              0.66538733,
+              0.4178851,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              0.8069523,
+              0.11443538,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            1.0
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightL_a.modelbin",
+            "Id": 2,
+            "Name": "metal_satin",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            2.0,
+            2.0,
+            1.0,
+            1.0,
+            1.372,
+            -0.629,
+            1.0,
+            1.0
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 16
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightR_a.modelbin",
+            "Id": 2,
+            "Name": "metal_satin",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            2.0,
+            2.0,
+            1.0,
+            1.0,
+            1.372,
+            -0.629,
+            1.0,
+            1.0
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 16
+        }
+      ]
+    },
+    {
+      "Car": "MAS_MC12_04",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightLBulbs_a.modelbin",
+            "Id": 1,
+            "Name": "gls_lightbulb_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 2.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            2.0
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightL_a.modelbin",
+            "Id": 4,
+            "Name": "LBK_smoothChrome_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 0.5,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            10.0,
+            10.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.5
+          ],
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightRBulbs_a.modelbin",
+            "Id": 1,
+            "Name": "gls_lightbulb_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 2.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            2.0
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightR_a.modelbin",
+            "Id": 4,
+            "Name": "LBK_smoothChrome_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 0.5,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            10.0,
+            10.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.5
+          ],
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightLBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_lightbulb_04",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 8192.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            8192.0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightL_a.modelbin",
+            "Id": 6,
+            "Name": "LBK_standardCH1_030_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "White",
+            "TintSource": "ShaderDefault",
+            "DefaultsKey": "emitter_ch1.white:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 16
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightRBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_lightbulb_04",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 8192.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            8192.0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightR_a.modelbin",
+            "Id": 6,
+            "Name": "LBK_standardCH1_030_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.9386857,
+              0.8307699,
+              0.65837485,
+              1.0
+            ],
+            "Intensity": 5.657,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            10.0,
+            10.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            5.657
+          ],
+          "LitIntensity": 16
+        }
+      ]
+    },
+    {
+      "Car": "MER_UNIMOG_17",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightLBulbs_a.modelbin",
+            "Id": 4,
+            "Name": "gls_lightbulb_TURN",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 0.03125,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              0.8069523,
+              0.11443538,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            0.03125
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightL_a.modelbin",
+            "Id": 6,
+            "Name": "lights_smooth_CH1_TURN",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "White",
+            "TintSource": "ShaderDefault",
+            "DefaultsKey": "emitter_ch1.white:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightRBulbs_a.modelbin",
+            "Id": 4,
+            "Name": "gls_lightbulb_TURN",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 0.03125,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              0.8069523,
+              0.11443538,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            0.03125
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightR_a.modelbin",
+            "Id": 6,
+            "Name": "lights_smooth_CH1_TURN",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "White",
+            "TintSource": "ShaderDefault",
+            "DefaultsKey": "emitter_ch1.white:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightL_a.modelbin",
+            "Id": 8,
+            "Name": "lights_smooth_CH1_Indicator_Left",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 16.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 21,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            10.0,
+            10.0,
+            10.0,
+            10.0,
+            1.0,
+            1.0,
+            16.0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightR_a.modelbin",
+            "Id": 6,
+            "Name": "lights_smooth_CH1_Indicator_Right",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 16.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 20,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            10.0,
+            10.0,
+            10.0,
+            10.0,
+            1.0,
+            1.0,
+            16.0
+          ]
+        }
+      ]
+    },
+    {
+      "Car": "MG_METRO6R4_86",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/exterior/PrimaryLights/headlightLBulbs_a.modelbin",
+            "Id": 1,
+            "Name": "gls_lightBulb_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 2.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            2.0
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/PrimaryLights/headlightL_a.modelbin",
+            "Id": 3,
+            "Name": "LBK_smoothChrome_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            1.748,
+            2.65,
+            1.698,
+            0.897,
+            1.748,
+            2.65
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/PrimaryLights/headlightRBulbs_a.modelbin",
+            "Id": 1,
+            "Name": "gls_lightBulb_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 2.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            2.0
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/PrimaryLights/headlightR_a.modelbin",
+            "Id": 3,
+            "Name": "LBK_smoothChrome_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            1.748,
+            2.65,
+            1.698,
+            0.897,
+            1.748,
+            2.65
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/SecondaryLights/taillightLBulbs_a.modelbin",
+            "Id": 1,
+            "Name": "gls_lightBulb_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 2896.32,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            2896.32
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/SecondaryLights/taillightL_a.modelbin",
+            "Id": 2,
+            "Name": "LBK_smoothChrome_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "White",
+            "TintSource": "ShaderDefault",
+            "DefaultsKey": "emitter_ch1.white:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 16
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/SecondaryLights/taillightRBulbs_a.modelbin",
+            "Id": 1,
+            "Name": "gls_lightBulb_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 2896.32,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            2896.32
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/SecondaryLights/taillightR_a.modelbin",
+            "Id": 2,
+            "Name": "LBK_smoothChrome_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "White",
+            "TintSource": "ShaderDefault",
+            "DefaultsKey": "emitter_ch1.white:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 16
+        }
+      ]
+    },
+    {
+      "Car": "PAG_ZONDACINQUE_09",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightLBulbs_a.modelbin",
+            "Id": 3,
+            "Name": "gls_lightbulb_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              0.8069523,
+              0.11443538,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            1.0
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightL_a.modelbin",
+            "Id": 5,
+            "Name": "lbk_custom_001_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 0.5,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            10.0,
+            10.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.5
+          ],
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightRBulbs_a.modelbin",
+            "Id": 3,
+            "Name": "gls_lightbulb_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              0.8069523,
+              0.11443538,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            1.0
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightR_a.modelbin",
+            "Id": 5,
+            "Name": "lbk_custom_001_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 0.5,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            10.0,
+            10.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.5
+          ],
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightLBulbs_a.modelbin",
+            "Id": 1,
+            "Name": "gls_amber",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 32768.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              0.8069523,
+              0.11443538,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            32768.0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightL_a.modelbin",
+            "Id": 7,
+            "Name": "chrome_ridgesch1_001_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "White",
+            "TintSource": "ShaderDefault",
+            "DefaultsKey": "emitter_ch1.white:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            20.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 16
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightL_a.modelbin",
+            "Id": 8,
+            "Name": "lbk_custom_001_turn_2",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 8.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 21,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            6.0,
+            1.0,
+            1.0,
+            1.0,
+            8.0
+          ],
+          "LitIntensity": 16
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightRBulbs_a.modelbin",
+            "Id": 1,
+            "Name": "gls_amber",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 32768.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              0.8069523,
+              0.11443538,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            32768.0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightR_a.modelbin",
+            "Id": 7,
+            "Name": "chrome_ridgesch1_001_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "White",
+            "TintSource": "ShaderDefault",
+            "DefaultsKey": "emitter_ch1.white:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            20.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 16
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightR_a.modelbin",
+            "Id": 8,
+            "Name": "lbk_custom_001_turn_2",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 8.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 20,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            6.0,
+            1.0,
+            1.0,
+            1.0,
+            8.0
+          ],
+          "LitIntensity": 16
+        }
+      ]
+    },
+    {
+      "Car": "POR_996GT3_04",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightLBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_lightBulb_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 11.314,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            11.314
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightRBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_lightBulb_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 11.314,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            11.314
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightLBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_lightBulb_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 32.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            32.0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightL_a.modelbin",
+            "Id": 2,
+            "Name": "LBK_smoothChrome_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "White",
+            "TintSource": "ShaderDefault",
+            "DefaultsKey": "emitter_ch1.white:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 16
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightRBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_lightBulb_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 32.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            32.0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightR_a.modelbin",
+            "Id": 2,
+            "Name": "LBK_smoothChrome_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "White",
+            "TintSource": "ShaderDefault",
+            "DefaultsKey": "emitter_ch1.white:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 16
+        }
+      ]
+    },
+    {
+      "Car": "SUB_LEGACYB4GT_05",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/exterior/PrimaryLights/headlightLBulbs_a.modelbin",
+            "Id": 4,
+            "Name": "LBK_TurnGlass",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 2.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            2.0
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/PrimaryLights/headlightL_a.modelbin",
+            "Id": 3,
+            "Name": "LBK_standardCH1_003_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "White",
+            "TintSource": "ShaderDefault",
+            "DefaultsKey": "emitter_ch1.white:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            2.0,
+            2.0,
+            1.0,
+            1.0
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/PrimaryLights/headlightRBulbs_a.modelbin",
+            "Id": 4,
+            "Name": "LBK_TurnGlass",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 2.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            2.0
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/PrimaryLights/headlightR_a.modelbin",
+            "Id": 3,
+            "Name": "LBK_standardCH1_003_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "White",
+            "TintSource": "ShaderDefault",
+            "DefaultsKey": "emitter_ch1.white:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            2.0,
+            2.0,
+            1.0,
+            1.0
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/SecondaryLights/taillightLBulbs_a.modelbin",
+            "Id": 1,
+            "Name": "gls_lightbulb_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.9386857,
+              0.8307699,
+              0.65837485,
+              1.0
+            ],
+            "Intensity": 4.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              0.8069523,
+              0.11443538,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            4.0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/SecondaryLights/taillightL_a.modelbin",
+            "Id": 6,
+            "Name": "Indicator",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            15.0,
+            10.0,
+            1.0
+          ],
+          "LitIntensity": 16
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/SecondaryLights/taillightRBulbs_a.modelbin",
+            "Id": 1,
+            "Name": "gls_lightbulb_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.9386857,
+              0.8307699,
+              0.65837485,
+              1.0
+            ],
+            "Intensity": 4.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              0.8069523,
+              0.11443538,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            4.0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/SecondaryLights/taillightR_a.modelbin",
+            "Id": 6,
+            "Name": "Indicator",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            15.0,
+            10.0,
+            1.0
+          ],
+          "LitIntensity": 16
+        }
+      ]
+    },
+    {
+      "Car": "SUB_WRXSTI_05",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/exterior/PrimaryLights/headlightLBulbs_a.modelbin",
+            "Id": 1,
+            "Name": "gls_lightbulb_custom_turnlight",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 2.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            2.0
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/PrimaryLights/headlightL_a.modelbin",
+            "Id": 2,
+            "Name": "LBK_smoothChrome_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/PrimaryLights/headlightRBulbs_a.modelbin",
+            "Id": 1,
+            "Name": "gls_lightbulb_custom_turnlight",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 2.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            2.0
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/PrimaryLights/headlightR_a.modelbin",
+            "Id": 2,
+            "Name": "LBK_smoothChrome_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/SecondaryLights/taillightLBulbs_a.modelbin",
+            "Id": 1,
+            "Name": "gls_lightbulb_custom_turnlight",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 4.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            4.0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/exterior/SecondaryLights/taillightRBulbs_a.modelbin",
+            "Id": 1,
+            "Name": "gls_lightbulb_custom_turnlight",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 4.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            4.0
+          ]
+        }
+      ]
+    },
+    {
+      "Car": "TOY_CELICASSI_03",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightLBulbs_a.modelbin",
+            "Id": 2,
+            "Name": "gls_lightbbulb_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 5.657,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            5.657
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightRBulbs_a.modelbin",
+            "Id": 2,
+            "Name": "gls_lightbbulb_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 5.657,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            5.657
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightLBulbs_a.modelbin",
+            "Id": 2,
+            "Name": "gls_lightbulb_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 22.627,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            22.627
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightRBulbs_a.modelbin",
+            "Id": 2,
+            "Name": "gls_lightbulb_custom_turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 22.627,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            22.627
+          ]
+        }
+      ]
+    },
+    {
+      "Car": "TVR_SAGARIS_05",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightLBulbs_a.modelbin",
+            "Id": 2,
+            "Name": "gls_lightbulb_custom_01",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 2.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            2.0
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightL_a.modelbin",
+            "Id": 7,
+            "Name": "turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.9386857,
+              0.8307699,
+              0.65837485,
+              1.0
+            ],
+            "Intensity": 0.5,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            10.0,
+            10.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.5
+          ],
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightRBulbs_a.modelbin",
+            "Id": 2,
+            "Name": "gls_lightbulb_custom_01",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 2.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              0.36130682,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            2.0
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightLBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_lightbulb_custom_03",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 0.354,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            0.354
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightL_a.modelbin",
+            "Id": 4,
+            "Name": "LBK_smoothChrome_custom_03",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 2.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            2.0
+          ],
+          "LitIntensity": 16
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightRBulbs_a.modelbin",
+            "Id": 0,
+            "Name": "gls_lightbulb_custom_03",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 0.354,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            0.354
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightR_a.modelbin",
+            "Id": 4,
+            "Name": "LBK_smoothChrome_custom_03",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              0.62396044,
+              0.17788842,
+              0.0,
+              1.0
+            ],
+            "Intensity": 2.0,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            2.0
+          ],
+          "LitIntensity": 16
+        }
+      ]
+    },
+    {
+      "Car": "VW_CADDY_82",
+      "Materials": [
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightLBulbs_a.modelbin",
+            "Id": 2,
+            "Name": "gls_lightbulb_Turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              1.0,
+              0.66538733,
+              0.4178851,
+              1.0
+            ],
+            "Intensity": 0.03125,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              0.8069523,
+              0.11443538,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            0.03125
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightLBulbs_a.modelbin",
+            "Id": 3,
+            "Name": "lights_smooth_CH1_Turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              0.66538733,
+              0.4178851,
+              1.0
+            ],
+            "Intensity": 0.03125,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.03125
+          ],
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightL_a.modelbin",
+            "Id": 4,
+            "Name": "lights_smooth_CH1_Turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "White",
+            "TintSource": "ShaderDefault",
+            "DefaultsKey": "emitter_ch1.white:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "front",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightRBulbs_a.modelbin",
+            "Id": 2,
+            "Name": "gls_lightbulb_Turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              1.0,
+              0.66538733,
+              0.4178851,
+              1.0
+            ],
+            "Intensity": 0.03125,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              0.8069523,
+              0.11443538,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            0.03125
+          ],
+          "LitIntensity": 4
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightRBulbs_a.modelbin",
+            "Id": 3,
+            "Name": "lights_smooth_CH1_Turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              0.66538733,
+              0.4178851,
+              1.0
+            ],
+            "Intensity": 0.03125,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.03125
+          ],
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/PrimaryLights/headlightR_a.modelbin",
+            "Id": 4,
+            "Name": "lights_smooth_CH1_Turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "White",
+            "TintSource": "ShaderDefault",
+            "DefaultsKey": "emitter_ch1.white:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "front",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 8
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightLBulbs_a.modelbin",
+            "Id": 4,
+            "Name": "gls_lightbulb_Turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              1.0,
+              0.66538733,
+              0.4178851,
+              1.0
+            ],
+            "Intensity": 16384.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              0.8069523,
+              0.11443538,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            16384.0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightLBulbs_a.modelbin",
+            "Id": 5,
+            "Name": "lights_smooth_CH1_Turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              0.66538733,
+              0.4178851,
+              1.0
+            ],
+            "Intensity": 0.03125,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.03125
+          ],
+          "LitIntensity": 16
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightL_a.modelbin",
+            "Id": 3,
+            "Name": "lights_smooth_CH1_Turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "White",
+            "TintSource": "ShaderDefault",
+            "DefaultsKey": "emitter_ch1.white:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 21,
+          "Region": "rear",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 16
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightRBulbs_a.modelbin",
+            "Id": 4,
+            "Name": "gls_lightbulb_Turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\glass\\glass.materialbin",
+            "Tint": [
+              1.0,
+              0.66538733,
+              0.4178851,
+              1.0
+            ],
+            "Intensity": 16384.0,
+            "TintPolicy": "AuthoredEmission",
+            "EmissiveSwitch": true,
+            "LensTint": [
+              0.8069523,
+              0.11443538,
+              0.0,
+              1.0
+            ]
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            16384.0
+          ]
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightRBulbs_a.modelbin",
+            "Id": 5,
+            "Name": "lights_smooth_CH1_Turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              0.66538733,
+              0.4178851,
+              1.0
+            ],
+            "Intensity": 0.03125,
+            "TintPolicy": "AuthoredEmission"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.03125
+          ],
+          "LitIntensity": 16
+        },
+        {
+          "Material": {
+            "Path": "Scene/Exterior/SecondaryLights/taillightR_a.modelbin",
+            "Id": 3,
+            "Name": "lights_smooth_CH1_Turn",
+            "Resource": "Game:\\Media\\cars\\_library\\materials\\_fmnext\\lamp\\emitter_ch1.materialbin",
+            "Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Intensity": 1.0,
+            "TintPolicy": "White",
+            "TintSource": "ShaderDefault",
+            "DefaultsKey": "emitter_ch1.white:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178"
+          },
+          "SourceTrigger": 70,
+          "TargetTrigger": 20,
+          "Region": "rear",
+          "FloatSources": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "IntensitySource": "ShaderDefault",
+          "IntensityDefaultsKey": "emitter_ch1.intensity1:c3ab547b8ce034550eb31c07dc0e5404fcc3ba3835990be47d1796b9f707279a:8d4ef07a59378e6862a1e9318b8b247100e7fc5e05954a8fdbe6ae6ea2a57178",
+          "LitIntensity": 16
+        }
+      ]
+    }
+  ]
+}

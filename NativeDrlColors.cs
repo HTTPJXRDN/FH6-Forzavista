@@ -82,7 +82,7 @@ internal static partial class NativeCarControl
             return new(identity, generation, selection, reuse, [])
             { UnavailableReason = NativeDrlStrobeSource.EngineOffMessage };
         IReadOnlyList<(ulong Wrapper, ulong Instance, ulong Resource, string Path)> models = [];
-        if (selection.Mode != DrlColorMode.Original && !reuse)
+        if ((selection.Mode != DrlColorMode.Original || DrlColorProfileCatalog.HasSupplementalDrl(identity.Car)) && !reuse)
         {
             var paths = profiles.Select(p => @"Game:\Media\cars\" + identity.Car + "\\" +
                 p.Path.Replace('/', '\\')).ToHashSet(StringComparer.OrdinalIgnoreCase);
@@ -137,7 +137,7 @@ internal static partial class NativeCarControl
                 if (_drlColorSession is { } previous &&
                     (previous.Identity != identity || !IsCurrentDrlColorScene(context, previous)))
                     DiscardDrlColor("Car/render scene changed. Previous color addresses left untouched; restoration was not verified.");
-                if (preparation.Selection.Mode == DrlColorMode.Original)
+                if (preparation.Selection.Mode == DrlColorMode.Original && !DrlColorProfileCatalog.HasSupplementalDrl(identity.Car))
                 {
                     cancellation.ThrowIfCancellationRequested();
                     mutationStarted = true;
@@ -203,7 +203,9 @@ internal static partial class NativeCarControl
                 _drlColorNotice = null;
                 SessionLog.Write("drl_color_on", $"mode={session.Selection.Mode}; cycleSeconds={session.Selection.RainbowPeriodSeconds}; brightnessPercent={session.Selection.BrightnessPercent}; strobe={session.Selection.Strobe}; nativeStrobe={session.Selection.NativeStrobe}; strobeFlashesPerSecond={session.Selection.StrobeFlashesPerSecond}; materials={session.Route.Count}",
                     gamePid: identity.Pid, carToken: identity.Car, component: identity.Component);
-                return new(true, session.Selection.Mode == DrlColorMode.Hazards
+                return new(true, session.Selection.Mode == DrlColorMode.Original
+                    ? "Original DRL colors restored; supplemental strips follow FRONT DRL."
+                    : session.Selection.Mode == DrlColorMode.Hazards
                     ? "DRL hazards ON: synchronized amber flashes on mapped DRLs only. FRONT DRL must be ON."
                     : session.Selection.Strobe
                     && session.Selection.NativeStrobe ? "DRL native strobe ON: synchronized game timing. FRONT DRL and engine must be ON."
@@ -299,6 +301,12 @@ internal static partial class NativeCarControl
         // restore our mapped trigger using the route's complete owner guards.
         if (!session.Route.SetNativeStrobe(native && session.StrobeSource!.DrlEnabled, shouldYield))
         { session.FrameDirty = true; return; }
+        if (session.Selection.Mode == DrlColorMode.Original)
+        {
+            session.Route.RestoreOriginalColor();
+            session.FrameDirty = false;
+            return;
+        }
         double elapsed = session.Clock.Elapsed.TotalSeconds;
         double rainbowElapsed = Math.Max(0, elapsed + session.RainbowPhaseOffsetSeconds);
         var (r, g, b) = session.Selection.GetFrameLinearRgb(rainbowElapsed, elapsed - session.StrobeStartedAtSeconds);
@@ -338,6 +346,7 @@ internal static partial class NativeCarControl
             return new(session?.Selection.Mode ?? DrlColorMode.Original, session?.Suspended == true,
                 session?.Faulted == true, _drlColorNotice ?? (session is null ? "Original DRL color." :
                     session.Suspended ? "Indicators take priority; selected DRL color resumes when they turn OFF." :
+                    session.Selection.Mode == DrlColorMode.Original ? "Original DRL colors; supplemental strips follow FRONT DRL." :
                     session.Selection.Mode == DrlColorMode.Hazards ? "DRL hazards: mapped DRLs only, synchronized amber at 1.5 flashes per second. FRONT DRL must be ON." :
                     session.Selection.Strobe && session.Selection.NativeStrobe ? "DRL native strobe: synchronized game timing. FRONT DRL and engine must be ON." :
                     session.Selection.Strobe ? $"DRL custom strobe: {session.Selection.StrobeFlashesPerSecond:0} flashes per second. FRONT DRL must be ON." :
@@ -445,6 +454,42 @@ internal static partial class NativeCarControl
             try { return RestoreDrlColorCore(); }
             catch (Exception error) { return HandleDrlColorFailure(error); }
         }
+    }
+
+    internal static NativeLightActionResult SelectOriginalDrlColor()
+    {
+        lock (SignalGate)
+        lock (DrlColorGate)
+        {
+            if (_drlColorSession is not { } session || !DrlColorProfileCatalog.HasSupplementalDrl(session.Identity.Car))
+                return RestoreTrackedDrlColor();
+            try
+            {
+                if (session.Faulted || !IsCurrentDrlColorCar(session)) return RestoreDrlColorCore();
+                session.Selection = DrlColorSelection.Stock;
+                ApplyDrlColorFrame(session);
+                _drlColorGeneration++;
+                _drlColorNotice = "Original DRL colors restored; supplemental strips follow FRONT DRL.";
+                return new(true, _drlColorNotice);
+            }
+            catch (Exception error) { return HandleDrlColorFailure(error); }
+        }
+    }
+
+    // Called only for an explicit FRONT/ALL toggle, with the common lock order.
+    // Polls never create a route or write material buffers.
+    private static NativeLightActionResult EnsureSupplementalDrlGrouping(LightIdentity identity)
+    {
+        if (!DrlColorProfileCatalog.HasSupplementalDrl(identity.Car)) return new(true, "No supplemental DRLs.");
+        if (_drlColorSession is { } session && session.Identity == identity && IsCurrentDrlColorCar(session))
+        {
+            if (session.Faulted || session.Suspended) return new(false, "Use RESET STATE before changing supplemental DRLs.");
+            session.Route.Validate();
+            return new(true, "Supplemental DRL grouping retained.");
+        }
+        var prepared = PrepareDrlColor(DrlColorSelection.Stock, CancellationToken.None);
+        if (prepared.Identity != identity) return new(false, "Car changed before supplemental DRL grouping; no light toggle applied.");
+        return ApplyDrlColor(prepared, CancellationToken.None);
     }
 
     private static NativeLightActionResult RestoreDrlColorCore()

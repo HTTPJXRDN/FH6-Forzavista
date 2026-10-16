@@ -149,12 +149,14 @@
                 <Border Style="{StaticResource CardHeadStrip}">
                   <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <Border Style="{StaticResource HeadAccent}"/>
-                    <TextBlock Style="{StaticResource CardTitle}" Text="DISPLAY"/>
+                    <TextBlock Style="{StaticResource CardTitle}" Text="VEHICLE"/>
                   </StackPanel>
                 </Border>
                 <StackPanel Margin="14,12,14,14">
+                  <Button x:Name="IgnitionButton" Content="IGNITION: —" Style="{StaticResource GhostButton}" Height="38" Margin="0,0,0,10" IsEnabled="False"
+                          ToolTip="OFF stops engine sound and cuts drive power; ON restores the original power. The car can still coast. RESET STATE and closing the tool restore original ignition and power. Steam only; Xbox mapping is pending."/>
                   <Button x:Name="MaxDetailButton" Content="MAX DETAIL: OFF" Style="{StaticResource GhostButton}" Height="42" IsEnabled="False"/>
-                  <TextBlock Style="{StaticResource Hint}" Text="Forces full Autovista car detail (open-panel geometry). Toggle off to restore normal free roam."/>
+                    <TextBlock Style="{StaticResource Hint}" Text="Full car detail. OFF restores the original view. After a game view change, RESET clears the earlier request. Native scene changes are preserved."/>
                 </StackPanel>
               </StackPanel>
             </Border>
@@ -224,10 +226,11 @@
                   <TextBlock x:Name="LightsHint" Style="{StaticResource Hint}" Text="RESET STATE restores original lights."/>
                   <StackPanel x:Name="SignalsPanel" Visibility="Collapsed">
                   <Separator Margin="0,10,0,10"/>
-                  <Button x:Name="LeftIndicatorButton" Content="LEFT INDICATOR: —" Style="{StaticResource GhostButton}" Height="34" IsEnabled="False" ToolTip="Toggle the tested left-side native blink sequence. Click again for OFF; another signal mode replaces it. Steam development feature."/>
-                  <Button x:Name="RightIndicatorButton" Content="RIGHT INDICATOR: —" Style="{StaticResource GhostButton}" Height="34" Margin="0,8,0,0" IsEnabled="False" ToolTip="Toggle the tested right-side native blink sequence. Click again for OFF. Unsupported car layouts are disabled."/>
-                  <Button x:Name="HazardsButton" Content="HAZARDS: —" Style="{StaticResource GhostButton}" Height="34" Margin="0,8,0,0" IsEnabled="False" ToolTip="Factory indicator routes flash their authored bulbs. Other mapped cars use synchronized amber DRL hazards, labeled DRL ONLY; FRONT DRL must be ON. DRL hazard OFF returns the previous color/RGB/strobe choice. RESET STATE restores stock."/>
-                  <TextBlock x:Name="SignalsHint" Style="{StaticResource Hint}" Text="Experimental signals: tested cars only. Turn OFF before changing car/scene. RESET STATE restores routing."/>
+                  <TextBlock Text="AMBER SIGNALS · PREVIEW" FontSize="11" FontWeight="SemiBold" Foreground="{StaticResource Ink}" Margin="0,0,0,8"/>
+                  <Button x:Name="LeftIndicatorButton" Content="LEFT INDICATOR: —" Style="{StaticResource GhostButton}" Height="34" IsEnabled="False" ToolTip="Toggle the left-side native blink sequence on a listed preview car. Engine must be ON. Click again for OFF; another signal mode replaces it."/>
+                  <Button x:Name="RightIndicatorButton" Content="RIGHT INDICATOR: —" Style="{StaticResource GhostButton}" Height="34" Margin="0,8,0,0" IsEnabled="False" ToolTip="Toggle the right-side native blink sequence on a listed preview car. Click again for OFF. Other cars remain disabled."/>
+                  <Button x:Name="HazardsButton" Content="HAZARDS: —" Style="{StaticResource GhostButton}" Height="34" Margin="0,8,0,0" IsEnabled="False" ToolTip="Flash both mapped sides together using their original colors and brightness. Click again for OFF. RESET STATE restores original routing. Steam preview; front and rear need your visual check."/>
+                  <TextBlock x:Name="SignalsHint" Style="{StaticResource Hint}" Text="Amber preview: listed candidates only. Turn OFF before changing car/scene. RESET STATE restores routing."/>
                   </StackPanel>
                 </StackPanel>
               </StackPanel>
